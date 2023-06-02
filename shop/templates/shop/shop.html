@@ -1,0 +1,15 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block css %}{% endblock %}
+{% block title %}Меню{% endblock%}
+
+{% block content %}
+    <div class="product-main">
+        {% for product in all_products %}
+            <h1 class="product-name">{{ product.name }}</h1>
+            <img class="product-img" src="{{ product.image.url }}" >
+            <p class="product-description">{{ product.description }}</p>
+            <p class="product-price">{{ product.price }}грн</p>
+        {% endfor %}
+    </div>
+{% endblock %}

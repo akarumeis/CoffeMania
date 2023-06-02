@@ -1,0 +1,36 @@
+<html lang="en">
+{% load static %}
+<!--  -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'base/base.css' %}">
+    <script src="{% static 'js/jQuery.js' %}" defer></script>
+    <script src="{% static 'js/script.js' %}" defer></script>
+    {% block css %}{% endblock %}
+    <title>{% block title %}{% endblock%}</title>
+</head>
+
+<body>
+    <header>
+        <div class="inner-header">
+            <a class="logo" href="{% url 'main_page' %}">
+                <img src="{% static 'img/logo.png' %}">
+                <span class="logo-text">Coffee Mania</span> 
+            </a>
+            <div class="menu-buttons">
+                <a href="{% url 'main_page' %}" class="menu-button">Головна</a>
+                <a href="{% url 'menu_page' %}" class="menu-button">Меню</a>
+                <a href="{% url 'contact_page' %}" class="menu-button">Контакти</a>
+                <a href="{% url 'basket_page' %}"><img src="{% static 'img/basket.png' %}"></a>
+            </div>
+        </div>
+    </header>
+    <main>{% block content%}{% endblock %}</main>
+    <footer>
+
+    </footer>
+</body>
+
+</html>
