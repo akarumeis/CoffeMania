@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
+
+
+.buy-button {
+    display: grid;
+    place-items: center;
+
+}
+
+.cover {
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 9;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.buy-modal-window {
+    z-index: 10;
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 10px 0px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 300px;
+    background: #2C2C2C;
+    border-radius: 10px;
+}
+
+.close-button {
+    font-size: 40px;
+    color: #85DB9D;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-button:hover{
+    font-size: 50px;
+    transform: rotate(30deg);
+}
+
+.text-order {
+    margin: 0 auto;
+    font-family: 'Orelega One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 35px;
+    color: #85DB9D;
+}
+
+.order-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px;
+    gap: 10px;
+    width: 500px;
+    height: 203px;
+}
+
+.order-button {
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    padding: 0px;
+    width: 288px;
+    height: 58px;
+    border: none;
+    background: #85DB9D;
+    border-radius: 10px;
+    font-family: 'Orelega One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.order-button:hover{
+    background: #488358;
+    color: white;
+}

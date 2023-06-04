@@ -9,6 +9,7 @@
     <script src="{% static 'js/jQuery.js' %}" defer></script>
     <script src="{% static 'js/script.js' %}" defer></script>
     {% block css %}{% endblock %}
+    {% block js %}{% endblock %}
     <title>{% block title %}{% endblock%}</title>
 </head>
 
@@ -16,15 +17,16 @@
     <header>
         <div class="inner-header">
             <a class="logo" href="{% url 'main_page' %}">
-                <img src="{% static 'img/logo.png' %}">
+                <img class="logo-img" src="{% static 'img/logo.png' %}">
                 <span class="logo-text">Coffee Mania</span> 
             </a>
             <div class="menu-buttons">
                 <a href="{% url 'main_page' %}" class="menu-button">Головна</a>
                 <a href="{% url 'menu_page' %}" class="menu-button">Меню</a>
                 <a href="{% url 'contact_page' %}" class="menu-button">Контакти</a>
-                <a href="{% url 'basket_page' %}"><img src="{% static 'img/basket.png' %}"></a>
+                
             </div>
+            <a href="{% url 'basket_page' %}"><img src="{% static 'img/basket.png' %}"></a>
         </div>
     </header>
     <main>{% block content%}{% endblock %}</main>

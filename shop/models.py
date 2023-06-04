@@ -9,7 +9,7 @@ class Product(models.Model):
     price = models.CharField(max_length=255)
     
     def get_absolute_url(self):
-        return reverse('pruducts', {"product_pk": self.pk})
+        return reverse('product', kwargs = {'product_pk': self.pk})
         
     def  __str__(self):
         return self.name

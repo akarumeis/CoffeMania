@@ -4,12 +4,19 @@
 {% block title %}Меню{% endblock%}
 
 {% block content %}
-    <div class="product-main">
+<div id="content">
+    <div class="product-row">
         {% for product in all_products %}
-            <h1 class="product-name">{{ product.name }}</h1>
-            <img class="product-img" src="{{ product.image.url }}" >
+
+        <!-- Отображение информации о товаре -->
+        <a class="product-item" href="{{ product.get_absolute_url }}">
+            <h2>{{ product.name }}</h2>
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
             <p class="product-description">{{ product.description }}</p>
             <p class="product-price">{{ product.price }}грн</p>
+        </a>
+
         {% endfor %}
     </div>
+</div>
 {% endblock %}

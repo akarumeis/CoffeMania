@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'user_interface.apps.UserInterfaceConfig',
     'shop.apps.ShopConfig',
     'basket.apps.BasketConfig',
+    'authenticate.apps.AuthenticateConfig'
 ]
 
 MIDDLEWARE = [
