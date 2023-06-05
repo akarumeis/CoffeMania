@@ -1,12 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REGISTRATION</title>
-</head>
-<body>
-    
-</body>
-</html>
+{% extends 'auth/base_auth.html' %}
+{% load static %}
+
+
+{% block title %} Реєстрація {% endblock %}
+
+{% block form %}
+<div class="form_div">
+    <h1 class="title-form">Реєстрація</h1>
+    <form class="form" method="POST">
+        {% csrf_token %}
+        <div class="inputs">
+            <input type="text" class="reg_input" id="fullname" name="fullname" placeholder="ПІБ" autocomplete="off"
+                required><br>
+
+            <input type="tel" class="reg_input" id="phone" name="phone" placeholder="Номер телефона" autocomplete="off"
+                value="+380" required><br>
+
+            <input type="password" class="reg_input" id="password" name="password" placeholder="Пароль"
+                autocomplete="off" required><br>
+                <p class="error_password" style="color:red"></p>
+            <input type="password" class="reg_input" id="confirm_password" name="confirm_password"
+                placeholder="Продоблюйте пароль" autocomplete="off" required>
+        </div>
+        <p class="error" style="color:red"></p>
+        <button class="reg_button" value="{% url 'register' %}">Зареєструватись</button>
+
+    </form>
+    <div class="nav_btn">
+        <a class="log_btn" href=" {% url 'menu_page' %}"><img class="arrow revers"
+                src="{% static 'auth_img/arrow.png' %}" alt="">До товару</a>
+        <a class="log_btn" href=" {% url 'login_page' %}">Вхід <img class="arrow"
+                src="{% static 'auth_img/arrow.png' %}" alt=""></a>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -18,4 +18,6 @@ urlpatterns = [
     path('delete_from_basket', delete_from_basket, name = 'delete_from_basket'),
     path('registration/', show_registration, name = 'reg_page'),
     path('login/', show_login, name = 'login_page'),
+    path('user_reg/', register_user, name='register'),
+    path('user_log/', login_user, name='login'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

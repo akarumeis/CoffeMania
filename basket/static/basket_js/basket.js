@@ -1,5 +1,5 @@
 $(".buy-button").click(function showBuyModalWindow() {
-  $(".buy-button").remove();
+  $(".buy-button").css('display', 'none');
   $(".buy-modal-window").css("display", "flex");
   const cover = document.createElement("div");
   cover.classList.add("cover");
@@ -8,6 +8,7 @@ $(".buy-button").click(function showBuyModalWindow() {
 });
 
 $(".close-button").click(function hideBuyModalWindow() {
+  $(".buy-button").css('display', 'flex');
   $(".buy-modal-window").css("display", "none");
   document.querySelector(".cover").remove();
   $("body").css("overflow", "auto");
