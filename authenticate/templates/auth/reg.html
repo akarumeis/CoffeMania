@@ -22,11 +22,10 @@
 
             <input type="password" class="reg_input" id="password" name="password" placeholder="Пароль"
                 autocomplete="off" required><br>
-            <p class="error_password" style="color:red"></p>
             <input type="password" class="reg_input" id="confirm_password" name="confirm_password"
                 placeholder="Продоблюйте пароль" autocomplete="off" required>
         </div>
-        <p class="error" style="color:red"></p>
+        <p class="error"></p>
         <button class="reg_button" value="{% url 'register' %}">Зареєструватись</button>
 
     </form>

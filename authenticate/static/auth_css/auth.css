@@ -113,3 +113,14 @@
 .revers{
     transform: rotate(180deg);
 }
+
+.error{
+    display: flex;
+    align-items: end;
+    margin-top: 15px;
+    height: 30px;
+    font-size: 22px;
+    letter-spacing: 0.2em;
+    font-weight: 700;
+    color: rgb(185, 0, 0);    
+}

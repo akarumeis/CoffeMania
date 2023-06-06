@@ -25,19 +25,29 @@ def show_product(request, product_pk):
                     session_key=request.session.session_key)
                 # Получаем идентификатор пользователя из сеанса
                 user_id = session.get_decoded().get('_auth_user_id')
-                # Создаем объект ProductInBasket с указанными значениями
-                ProductInBasket.objects.create(
-                    session_key='', user=User.objects.get(id=user_id), product=product)
+
+                try:
+                    # Пытаемся найти объект ProductInBasket для пользователя и продукта
+                    product = ProductInBasket.objects.get(user=User.objects.get(id=user_id), product=product)
+                    product.amount += 1
+                    product.save()
+                except:
+                    # Если объект ProductInBasket не найден, создаем новый для пользователя и продукта
+                    ProductInBasket.objects.create(session_key='', user=User.objects.get(id=user_id), product=product)
             except:
-                # Если не удалось получить сеанс или идентификатор пользователя, создаем объект ProductInBasket только с указанным продуктом и ключом сеанса
-                ProductInBasket.objects.create(
-                    session_key=session_key, product=product)
+                try:
+                    # Пытаемся найти объект ProductInBasket для сеанса пользователя и продукта
+                    product = ProductInBasket.objects.get(session_key=session_key, product=product)
+                    product.amount += 1
+                    product.save()
+                except:
+                    # Если объект ProductInBasket не найден, создаем новый для сеанса пользователя и продукта
+                    ProductInBasket.objects.create(session_key=session_key, product=product)
         else:
             # Если ключ сеанса не существует, создаем новый ключ и объект ProductInBasket
             request.session.cycle_key()
             session_key = request.session.session_key
-            ProductInBasket.objects.create(
-                session_key=session_key, product=product)
+            ProductInBasket.objects.create(session_key=session_key, product=product)
 
     # Получаем объект продукта для отображения
     product = get_object_or_404(Product, pk=product_pk)

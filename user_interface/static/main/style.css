@@ -1,0 +1,11 @@
+.content{
+    width: 1920px;
+    height: 3900px;
+    background-image: url(../img/rest_bg.jpg);
+    background-size: cover;
+}
+
+.face_div{
+    width: 1920px;
+    height: 920px;
+}

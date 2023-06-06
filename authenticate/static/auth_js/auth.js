@@ -8,7 +8,7 @@ $(document).ready(function () {
         url: $(this).val(),
         data: $(".form").serializeArray(),
         success: function (response) {
-          $(".error_password").html("");
+          $(".error").html("");
           $(".error").html(response["error"]);
           if (response["access"] === "available") {
             window.location = $(".redirect_url").val();
@@ -16,7 +16,7 @@ $(document).ready(function () {
         },
       });
     } else {
-      $(".error_password").html("Паролі не співпадають");
+      $(".error").html("Паролі не співпадають");
     }
   });
 

@@ -1,6 +1,7 @@
 <html lang="en">
 {% load static %}
 <!--  -->
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,21 +19,53 @@
         <div class="inner-header">
             <a class="logo" href="{% url 'main_page' %}">
                 <img class="logo-img" src="{% static 'img/logo.png' %}">
-                <span class="logo-text">Coffee Mania</span> 
+                <span class="logo-text">Coffee Mania</span>
             </a>
             <div class="menu-buttons">
                 <a href="{% url 'main_page' %}" class="menu-button">Головна</a>
                 <a href="{% url 'menu_page' %}" class="menu-button">Меню</a>
                 <a href="{% url 'contact_page' %}" class="menu-button">Контакти</a>
-                
+
             </div>
             <a href="{% url 'basket_page' %}"><img src="{% static 'img/basket.png' %}"></a>
             <img class="profile_btn" src="{% static 'img/profile.png' %}">
         </div>
     </header>
-    <main>{% block content%}{% endblock %}</main>
+    <main>
+        {% block content%}{% endblock %}
+    </main>
     <footer>
+        <div class="inner-footer">
 
+            <div class="our-address">
+                <h2>Наша адреса</h2>
+                <p>-Проспект Дмитрия Яворницкого, 40, Днепр</p>
+                <a class="logo logo-footer" href="{% url 'main_page' %}">
+                    <img class="logo-img" src="{% static 'img/logo.png' %}">
+                    <span class="logo-text">Coffee Mania</span>
+                </a>
+            </div>
+            <div class="navigation">
+                <h2>Навігация</h2>
+                <div class="">
+                    <p><a href="{% url 'main_page' %}" class="">Головна</a></p>
+                    <p><a href="{% url 'menu_page' %}" class="">Меню</a></p>
+                    <p><a href="{% url 'contact_page' %}" class="">Контакти</a></p>
+                </div>
+            </div>
+            <div class="contacts">
+                <h2>Контакти</h2>
+                <p><img src="">Тел. +380 00 000 0000</p>
+                <p><img src="">coffemania@gmail.com</p>
+            </div>
+            <div class="social-networks">
+                <h2>Соцмережі</h2>
+                <p>coffemania-telegram</p>
+                <p>coffemania-twitter</p>
+                <p>coffemania-tiktok</p>
+                <p>coffemania-telegram</p>
+            </div>
+        </div>
     </footer>
 </body>
 
