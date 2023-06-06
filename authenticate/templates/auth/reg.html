@@ -6,19 +6,23 @@
 
 {% block form %}
 <div class="form_div">
+    
     <h1 class="title-form">Реєстрація</h1>
     <form class="form" method="POST">
         {% csrf_token %}
+        <input class="redirect_url" value="{% url 'basket_page' %}" hidden>
         <div class="inputs">
-            <input type="text" class="reg_input" id="fullname" name="fullname" placeholder="ПІБ" autocomplete="off"
+            <input type="text" class="reg_input name" id="firstname" name="firstname" placeholder="Прізвище" autocomplete="off"
+                required><br>
+            <input type="text" class="reg_input" id="name" name="name" placeholder="Ім'я" autocomplete="off"
                 required><br>
 
-            <input type="tel" class="reg_input" id="phone" name="phone" placeholder="Номер телефона" autocomplete="off"
-                value="+380" required><br>
+            <input type="text" class="reg_input" id="phone" name="phone" placeholder="Номер телефона" autocomplete="off"
+                required><br>
 
             <input type="password" class="reg_input" id="password" name="password" placeholder="Пароль"
                 autocomplete="off" required><br>
-                <p class="error_password" style="color:red"></p>
+            <p class="error_password" style="color:red"></p>
             <input type="password" class="reg_input" id="confirm_password" name="confirm_password"
                 placeholder="Продоблюйте пароль" autocomplete="off" required>
         </div>

@@ -91,3 +91,9 @@ header {
     display: grid;
     justify-content: center;
 }
+
+.profile_btn{
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+}

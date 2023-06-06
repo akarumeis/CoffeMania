@@ -1,8 +1,10 @@
 {% extends 'base/base.html' %}
 {% load static %}
 
-{% block css %} <link rel="stylesheet" href="{% static 'basket_css/basket.css' %}"> {% endblock %}
-{% block js %} <script src="{% static 'basket_js/basket.js' %}" defer></script> {% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'basket_css/basket.css' %}"> {% endblock %}
+{% block js %}
+<script src="{% static 'basket_js/basket.js' %}" defer></script> {% endblock %}
 
 {% block title %}Кошик{% endblock%}
 
@@ -11,24 +13,45 @@
 <div class="content">
     {% csrf_token %}
     <input class="delete-product" value="{% url 'delete_from_basket' %}" hidden>
-    
+
     {% for product_in_basket in products_in_basket %}
     <div id="product_{{product_in_basket.pk}}">
-        <h2 class="product-name">{{product_in_basket.product.name}}</h1>
-            <img src="{{ product_in_basket.product.image.url }}" alt="{{ product_in_basket.product.name }}">
-            <p class="product-description">{{ product_in_basket.product.description }}</p>
-            <p class="product-price">{{ product_in_basket.product.price }}грн</p>
-            <p class="user-note">{{ product_in_basket.user_note }}грн</p>
-            <button class="product-remove-button" value="{{product_in_basket.pk}}">Видалити з кошику</button>
+        <h2 class="product-name">{{product_in_basket.product.name}}</h2>
+        <img src="{{ product_in_basket.product.image.url }}" alt="{{ product_in_basket.product.name }}">
+        <p class="product-description">{{ product_in_basket.product.description }}</p>
+        <p class="product-price">{{ product_in_basket.product.price }}грн</p>
+        <button class="product-remove-button" value="{{product_in_basket.pk}}">Видалити з кошику</button>
     </div>
     {% endfor %}
+
+
     <div class="buy-modal-window">
+
+        {% if request.user.is_authenticated %}
+        <div class="close-button">&Cross;</div>
+        <div class="order-products">
+            {% for product_in_basket in products_in_basket %}
+            <div id="order_{{product_in_basket.pk}}" class="order-product">
+                <div class="product_name_price">
+                    <h2 class="product-name">{{product_in_basket.product.name}}</h1>
+                        <p class="product-price">{{ product_in_basket.product.price }}грн</p>
+                </div>
+                <button class="product-remove-button cross-btn" value="{{product_in_basket.pk}}">&Cross;</button>
+            </div>
+            {% endfor %}
+        </div>
+
+        <br><br><br><br>
+        <button class="order-buy" value="{{product_in_basket.pk}}">Замовити</button>
+
+        {% else %}
         <div class="close-button">&Cross;</div>
         <h2 class="text-order">Способи оформлення</h2>
         <div class="order-buttons">
-            <p><a class="order-button one-time-button">Разове оформлення</a></p>
+            <p><a href="#" class="order-button one-time-button">Разове оформлення</a></p>
             <p><a href="{% url 'reg_page' %}" class="order-button registration-button">Реєстрація</a></p>
         </div>
+        {% endif %}
     </div>
     <button class="buy-button">Оформити замовлення</button>
 </div>

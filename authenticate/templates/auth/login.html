@@ -6,12 +6,14 @@
 
 {% block form %}
 <div class="form_div">
+    
     <h1 class="title-form">Вхід</h1>
     <form class="form" method="POST">
         {% csrf_token %}
+        <input class="redirect_url" value="{% url 'basket_page' %}" hidden>
         <div class="inputs">
-            <input type="tel" class="reg_input" id="phone" name="phone" placeholder="Номер телефона" autocomplete="off"
-                value="+380" required><br>
+            <input type="text" class="reg_input" id="phone" name="phone" placeholder="Номер телефона" autocomplete="off"
+                required><br>
 
             <input type="password" class="reg_input" id="password" name="password" placeholder="Пароль"
                 autocomplete="off" required><br>
