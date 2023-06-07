@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1920">
     <link rel="stylesheet" href="{% static 'base/base.css' %}">
     <script src="{% static 'js/jQuery.js' %}" defer></script>
     <script src="{% static 'js/script.js' %}" defer></script>
@@ -18,7 +19,7 @@
     <header>
         <div class="inner-header">
             <a class="logo" href="{% url 'main_page' %}">
-                <img class="logo-img" src="{% static 'img/logo.png' %}">
+                <img class="logo-img" src="{% static 'img/header_logo/logo.png' %}">
                 <span class="logo-text">Coffee Mania</span>
             </a>
             <div class="menu-buttons">
@@ -27,44 +28,52 @@
                 <a href="{% url 'contact_page' %}" class="menu-button">Контакти</a>
 
             </div>
-            <a href="{% url 'basket_page' %}"><img src="{% static 'img/basket.png' %}"></a>
-            <img class="profile_btn" src="{% static 'img/profile.png' %}">
+            <a href="{% url 'basket_page' %}"><img src="{% static 'img/header_logo/basket.png' %}"></a>
+            <img class="profile_btn" src="{% static 'img/header_logo/profile.png' %}">
         </div>
     </header>
     <main>
         {% block content%}{% endblock %}
     </main>
     <footer>
-        <div class="inner-footer">
+        <div class="block_footer_info">
+            <div class="inner-footer">
 
-            <div class="our-address">
-                <h2>Наша адреса</h2>
-                <p>-Проспект Дмитрия Яворницкого, 40, Днепр</p>
-                <a class="logo logo-footer" href="{% url 'main_page' %}">
-                    <img class="logo-img" src="{% static 'img/logo.png' %}">
-                    <span class="logo-text">Coffee Mania</span>
-                </a>
-            </div>
-            <div class="navigation">
-                <h2>Навігация</h2>
-                <div class="">
-                    <p><a href="{% url 'main_page' %}" class="">Головна</a></p>
-                    <p><a href="{% url 'menu_page' %}" class="">Меню</a></p>
-                    <p><a href="{% url 'contact_page' %}" class="">Контакти</a></p>
+                <div class="our-address">
+                    <h2>Наша адреса</h2>
+                    <p>-Проспект Дмитра Яворницького, 40, Дніпро</p>
+                    
                 </div>
+                <div class="navigation">
+                    <h2>Навігація</h2>
+                    <div class="">
+                        <p><a href="{% url 'main_page' %}" class="">Головна</a></p>
+                        <p><a href="{% url 'menu_page' %}" class="">Меню</a></p>
+                        <p><a href="{% url 'contact_page' %}" class="">Контакти</a></p>
+                    </div>
+                    
+                </div>
+                <div class="contacts">
+                    <h2>Контакти</h2>
+                    <p><img src="{% static 'img/social_media/phone.png' %}">Тел. +380 00 000 0000</p>
+                    <p><img src="{% static 'img/social_media/email.png' %}">coffemania@gmail.com</p>
+                </div>
+                <div class="social-networks">
+                    <h2>Соцмережі</h2>
+                    <p><img src="{% static 'img/social_media/tg.png' %}">coffemania-telegram</p>
+                    <p><img src="{% static 'img/social_media/tw.png' %}">coffemania-twitter</p>
+                    <p><img src="{% static 'img/social_media/ws.png' %}">coffemania-whatsapp</p>
+                    <p><img src="{% static 'img/social_media/tt.png' %}">coffemania-tiktok</p>
+                    <p><img src="{% static 'img/social_media/yt.png' %}">coffemania-youtube</p>
+                </div>
+
+
             </div>
-            <div class="contacts">
-                <h2>Контакти</h2>
-                <p><img src="">Тел. +380 00 000 0000</p>
-                <p><img src="">coffemania@gmail.com</p>
-            </div>
-            <div class="social-networks">
-                <h2>Соцмережі</h2>
-                <p>coffemania-telegram</p>
-                <p>coffemania-twitter</p>
-                <p>coffemania-tiktok</p>
-                <p>coffemania-telegram</p>
-            </div>
+            <a class="logo logo-footer" href="{% url 'main_page' %}">
+                <img class="logo-img" src="{% static 'img/header_logo/logo.png' %}">
+                <div class="logo-text"><span>Coffee Mania</span></div>
+                
+            </a>
         </div>
     </footer>
 </body>

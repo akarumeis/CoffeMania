@@ -1,21 +1,24 @@
 {% extends 'base/base.html' %}
 {% load static %}
-{% block css %}{% endblock %}
+{% block css %}<link rel="stylesheet" href="{% static 'shop/shop.css' %}">{% endblock %}
 {% block title %}Меню{% endblock%}
 
 {% block content %}
-<div id="content">
+<div class="menu" id="content">
+    <h2>Меню</h2>
     <div class="product-row">
         {% for product in all_products %}
-
         <!-- Отображение информации о товаре -->
-        <a class="product-item" href="{{ product.get_absolute_url }}">
-            <h2>{{ product.name }}</h2>
+        <div class="product-all">
             <img src="{{ product.image.url }}" alt="{{ product.name }}">
-            <p class="product-description">{{ product.description }}</p>
-            <p class="product-price">{{ product.price }}грн</p>
-        </a>
-
+            <div class="desc">
+                <p>{{ product.name }}</p>
+                <!--<h3>{{ product.price }}грн</h3>  -->
+                <a class="product-item" href="{{ product.get_absolute_url }}">Замовити</a>
+            </div>
+            <!-- <p class="product-description">{{ product.description }}</p>
+            <p class="product-price">{{ product.price }}грн</p> -->
+        </div>
         {% endfor %}
     </div>
 </div>

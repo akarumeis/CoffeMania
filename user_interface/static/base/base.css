@@ -6,8 +6,24 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     overflow-x: hidden;
+}
+
+footer {
+    font-family: 'Orelega One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 0.215em;
+    color: #FFFFFF;
+    display: grid;
+    place-items: center;
+    background-size: cover;
+    width: 100%;
+    height: 430px;
+    background-image: url(../img/bgs/footer_bg.jpg);
 }
 
 header {
@@ -16,7 +32,6 @@ header {
     align-items: center;
     justify-content: center;
     gap: 90px;
-
     position: fixed;
     width: 100%;
     height: 100px;
@@ -24,6 +39,7 @@ header {
     top: 0px;
     background: #85DB9D;
     margin: 0 auto;
+    z-index: 10;
 }
 
 .inner-header {
@@ -93,7 +109,6 @@ header {
 .content {
     margin: 0 auto;
     width: 100%;
-    height: 3900px;
     display: grid;
     justify-content: center;
 }
@@ -104,20 +119,116 @@ header {
     cursor: pointer;
 }
 
+.block_footer_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    height: 80%;
+}
+
 .inner-footer {
-    padding: 50px;
-    width: 1920px;
-    margin: 0 auto;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: start;
-    justify-content: space-around;
-    gap: 34px;
+    width: 90%;
+    height: 100%;
+}
 
-    position: relative;
-    height: 200px;
-    left: 0px;
-    top: 0px;
-    background: #85DB9D;
-    margin: 0 auto;
+.our-address,
+.contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.our-address h2,
+.navigation h2,
+.contacts h2,
+.social-networks h2 {
+    font-size: 38px;
+    text-align: center;
+    letter-spacing: 0.25em;
+    border-bottom: #85DB9D 3px solid;
+    padding: 0 0 2px 0;
+    width: fit-content;
+}
+
+.our-address p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 30px;
+    max-width: 300px;
+    font-size: 22px;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.navigation p a,
+.navigation p {
+    width: fit-content;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-family: 'Pacifico';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 50px;
+    letter-spacing: 0.215em;
+    transition: 0.3s;
+}
+
+.navigation p a:hover {
+    text-shadow: 2px 4px 2px rgba(255, 255, 255, 0.695);
+}
+
+.contacts h2 {
+    width: 300px;
+}
+
+.contacts p {
+    line-height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 5px;
+}
+
+.social-networks h2 {
+    width: 300px;
+}
+
+.social-networks p {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    line-height: 50px;
+}
+
+.social-networks img {
+    margin-right: 10px;
+}
+
+.logo-footer {
+    width: 90%;
+
+}
+
+.logo-footer .logo-text {
+    padding: 10px;
+    font-size: 32px;
+    line-height: 56px;
+    letter-spacing: 0.215em;
+    width: fit-content;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    border-radius: 20px;
 }
