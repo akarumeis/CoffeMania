@@ -7,7 +7,7 @@
 .face_div {
     background-size: cover;
     background-image: url(../img/bgs/rest_bg.jpg);
-    width: 1930px;
+    width: 100%;
     height: 965px;
 
     display: flex;
@@ -95,7 +95,7 @@
 .main_content {
     background-size: cover;
     background-image: url(../img/bgs/bg.jpg);
-    width: 1930px;
+    width: 100%;
     height: 3300px;
     border: 5px solid #85DB9D;
     display: flex;

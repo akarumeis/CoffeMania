@@ -42,3 +42,18 @@ $(".product-remove-button").click(function () {
     },
   });
 });
+
+$(".modal-basket span").click(function () {
+  $(".modal-basket").css("display", "none");
+  $("body").css("overflow", "auto");
+  $(".modal-basket-cloth").css('display','none')
+  $("body").css('overflow-x','hidden')
+});
+
+
+$(".modal-basket-cloth").click(function () {
+  $(".modal-basket").css("display", "none");
+  $("body").css("overflow", "auto");
+  $(".modal-basket-cloth").css('display','none')
+  $("body").css('overflow-x','hidden')
+});

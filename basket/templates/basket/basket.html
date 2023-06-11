@@ -1,59 +1,63 @@
-{% extends 'base/base.html' %}
 {% load static %}
 
-{% block css %}
-<link rel="stylesheet" href="{% static 'basket_css/basket.css' %}"> {% endblock %}
-{% block js %}
-<script src="{% static 'basket_js/basket.js' %}" defer></script> {% endblock %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block title %}Кошик{% endblock%}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'basket_css/basket.css' %}">
+    <script src="{% static 'basket_js/basket.js' %}" defer></script>
 
-{% block content %}
+    <title>Document</title>
+</head>
 
-<div class="content">
-    {% csrf_token %}
-    <input class="delete-product" value="{% url 'delete_from_basket' %}" hidden>
-
-    {% for product_in_basket in products_in_basket %}
-    <div id="product_{{product_in_basket.pk}}">
-        <h2 class="product-name">{{product_in_basket.product.name}}</h2>
-        <img src="{{ product_in_basket.product.image.url }}" alt="{{ product_in_basket.product.name }}">
-        <p class="product-description">{{ product_in_basket.product.description }}</p>
-        <p class="product-price">{{ product_in_basket.product.price }}грн</p>
-        <button class="product-remove-button" value="{{product_in_basket.pk}}">Видалити з кошику</button>
+<body>
+    <div class="header-basket">
+        <h1>Кошик</h1> <span>&Cross;</span>
     </div>
-    {% endfor %}
+    <div class="content">
+        {% csrf_token %}
+        <input class="delete-product" value="{% url 'delete_from_basket' %}" hidden>
 
-
-    <div class="buy-modal-window">
-
-        {% if request.user.is_authenticated %}
-        <div class="close-button">&Cross;</div>
-        <div class="order-products">
-            {% for product_in_basket in products_in_basket %}
-            <div id="order_{{product_in_basket.pk}}" class="order-product">
-                <div class="product_name_price">
-                    <h2 class="product-name">{{product_in_basket.product.name}}</h1>
-                        <p class="product-price">{{ product_in_basket.product.price }}грн</p>
+        {% for product_in_basket in products_in_basket %}
+        <div id="product_{{product_in_basket.pk}}" class="product_basket">
+            <div class="product_info">
+                <img src="{{ product_in_basket.product.image.url }}" alt="{{ product_in_basket.product.name }}"
+                    class="image_product">
+                <div class="name_price">
+                    <h2 class="product-name">{{product_in_basket.product.name}}</h2>
+                    <p class="product-price">Кількість: {{ product_in_basket.amount }}</p>
+                    <p class="product-price">{{ product_in_basket.product.price }}грн</p>
                 </div>
-                <button class="product-remove-button cross-btn" value="{{product_in_basket.pk}}">&Cross;</button>
             </div>
-            {% endfor %}
+            <div class="button_bs">
+                <!-- <button class="product-detail-button" value="{{product_in_basket.pk}}">Детальніше</button> -->
+                <a class="product-item" href="{{ product_in_basket.product.get_absolute_url }}"
+                    class="product-detail-button">Детальніше</a>
+                <button class="product-remove-button" value="{{product_in_basket.pk}}"><img
+                        src="{% static 'basket_img/del_basket.png' %}"></button>
+            </div>
+            <!-- <p class="product-description">{{ product_in_basket.product.description }}</p> -->
         </div>
 
-        <br><br><br><br>
-        <button class="order-buy" value="{{product_in_basket.pk}}">Замовити</button>
+        {% endfor %}
 
-        {% else %}
-        <div class="close-button">&Cross;</div>
-        <h2 class="text-order">Способи оформлення</h2>
-        <div class="order-buttons">
-            <p><a href="#" class="order-button one-time-button">Разове оформлення</a></p>
-            <p><a href="{% url 'reg_page' %}" class="order-button registration-button">Реєстрація</a></p>
-        </div>
-        {% endif %}
+
+        <!-- <div class="buy-modal-window">
+            {% if request.user.is_authenticated != True %}
+            <div class="close-button">&Cross;</div>
+            <h2 class="text-order">Способи оформлення</h2>
+            <div class="order-buttons">
+                <p><a href="#" class="order-button one-time-button">Разове оформлення</a></p>
+                <p><a href="{% url 'reg_page' %}" class="order-button registration-button">Реєстрація</a></p>
+            </div>
+            {% endif %}
+        </div> -->
+        <button class="buy-button">Замовити</button>
     </div>
-    <button class="buy-button">Оформити замовлення</button>
-</div>
 
-{% endblock %}
+</body>
+
+</html>

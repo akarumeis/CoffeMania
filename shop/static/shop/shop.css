@@ -1,15 +1,163 @@
+.menu {
+    background-color: #2C2C2C;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2vh 2vw;
+    font-family: 'Pacifico';
+    font-style: normal;
+    font-weight: 400;
+}
 
+.menu h2 {
+    font-size: calc(30px + 18 * (100vw / 1920));
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+
+}
+
+.product-block {
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10%;
+}
+
+.product-all {
+    background-color: #85DB9D;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    width: 320px;
+    height: 500px;
+    margin-bottom: 3vh;
+    justify-content: center;
+    align-items: center;
+    padding: 2% 1%;
+    
+
+}
+
+.buttons-in-product {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    align-items: center;
+    justify-content: center;
+    gap:3%;
+}
+
+.basket-button {
+    width: 15%;
+    cursor: pointer;
+}
+
+.product-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 100%;
+    border: 3px solid #000000;
+    border-radius: 13px;
+    font-size: calc( 16px + 8 * (100vw / 1920));
+    letter-spacing: 0.215em;
+    text-decoration: none;
+    color: #FFFFFF;
+    transition: 0.3s;
+}
+
+.product-button:hover{
+    background: rgb(0, 0, 0);
+    color: #ffffff;
+}
+
+.product-all .desc {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3% 0;
+}
+
+.product-img {
+    width: 62%;
+    border-radius: 100%;
+}
+
+.product-all .desc p {
+    font-size: calc(18.5px + 11.5 * (100vw / 1920));
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #000000;
+    height: 106px;
+}
+
+@media screen and (max-width: 1280px) {
+    .product-all {
+        width: 25vw;
+        height: 450px;      
+    }
+
+}
+
+@media screen and (max-width: 1024px) {
+    .menu h2 {
+        font-size: calc(30px + (18 + 18 * 0.7) * ((100vw - 320px) / 1920));
+    }
+
+    .product-all desc p {
+        font-size: calc(18.5px + (11.5 + 11.5 * 0.7) * ((100vw - 320px) / 1920));
+    }
+
+    .product-button {
+        font-size: calc(16px + (8 + 8 * 0.7) * ((100vw - 320px) /1920));
+    }
+
+    .product-all {
+        width: 30vw;
+        height: 400px;      
+    }
+}
+
+@media screen and (max-width: 890px) {
+    .product-all {
+        width: 350px;
+        height: 450px;          
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .product-all {
+        max-width: 300px;
+        width: 90vw;
+        height: 350px;          
+    }
+}
+
+/* 
+@media screen and (max-width: 1024px) {
+    .logo-text {
+        font-size: calc(20px + (12 + 12 * 0.7) * ((100vw - 320px) / 1920));
+    } */
+
+/* 
 .menu{
     background-color: #2C2C2C;
     height: 100vh;
     margin-top: 2%;
 }
-.product-row {
+.product-block {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 50px;
-    /* padding-top: 10% */
+    gap: 4%;
+    padding-top: 2%;
+    padding-bottom: 5%;
 }
 .menu h2 {
     display: flex;
@@ -17,23 +165,24 @@
     font-family: 'Pacifico';
     font-style: normal;
     font-weight: 400;
-    font-size: 48px;
+    font-size: 2.5vw;
     line-height: 84px;
     letter-spacing: 0.05em;
     color: #FFFFFF;
-    padding-top: 5%
-    /* margin-bottom: 30px; */
+    padding-top: 1%
+    margin-bottom: 30px;
 }
 
 .product-all {
     display: flex;
     flex-direction: row;
+    
     align-items: center;
     padding: 0px 10px 0px 0px;
-    gap: 25px;
+    gap: 0.5vw;
     justify-content: space-between;
-    width: 535px;
-    height: 200px;
+    width: 30vw;
+    height: 10.9vw;
 
     background: #85DB9D;
     border-radius: 20px;
@@ -49,11 +198,11 @@
     gap: 10px;
 
     width: fit-content;
-    height: 172px;
+    height: 10vw;
 }
 
 .product-all .desc p {
-    width: 300px;
+    width: 15vw;
     height: 106px;
 
     font-family: 'Pacifico';
@@ -86,7 +235,10 @@
     text-decoration: none;
     transition: 0.3s;
 }
+.product-all img {
+    max-width: 100vw;
 
+}
 .product-all .desc a:hover {
     background: #000000;
-}
+} */

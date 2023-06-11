@@ -1,5 +1,5 @@
 {% extends 'base/base.html' %}
-
+{% block title %}{{ product.name }}{% endblock%}
 {% block content %}
 <div id="content">
     <div class="product-row">
@@ -12,11 +12,7 @@
             {% csrf_token %}
             <input name="product-pk" value = "{{ product.pk }}" hidden>
             <input name="product-url" value = "{{ product.get_absolute_url }}" hidden>
-            <!-- <p><input type="text" name="username" placeholder="ПІБ" required></p>
-            <p><input type="text" name="phone-number" placeholder="Номер телефону"required></p>
-            <p><input type="text" name="addres" placeholder="Адресса"required></p> -->
-            <p><textarea name="user-note" cols="30" rows="10" placeholder="Ваші побажання" required></textarea></p>
-            <p><button class="add-product-button">Додати в кошик</button></p>
+            <button class="add-product-button" value="{{ product.get_absolute_url }}">Додати в кошик</button>
         </form>
     </div>
 </div>

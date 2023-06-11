@@ -1,23 +1,32 @@
 {% extends 'base/base.html' %}
 {% load static %}
-{% block css %}<link rel="stylesheet" href="{% static 'shop/shop.css' %}">{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'shop/shop.css' %}">{% endblock %}
+{% block js %}
+<link rel="stylesheet" href="{% static 'basket_css/basket.css' %}">
+{% endblock %}
 {% block title %}Меню{% endblock%}
 
 {% block content %}
 <div class="menu" id="content">
     <h2>Меню</h2>
-    <div class="product-row">
+    <div class="product-block">
+        {% csrf_token %}
         {% for product in all_products %}
-        <!-- Отображение информации о товаре -->
         <div class="product-all">
-            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            <img class = 'product-img' src="{{ product.image.url }}" alt="{{ product.name }}">
             <div class="desc">
                 <p>{{ product.name }}</p>
-                <!--<h3>{{ product.price }}грн</h3>  -->
-                <a class="product-item" href="{{ product.get_absolute_url }}">Замовити</a>
+                <h3>{{ product.price }}грн</h3>
+                <div class="buttons-in-product">
+                    <a class="product-button" href="{{ product.get_absolute_url }}">Детальніше</a>
+                    <input class="product-pk" value = "{{ product.pk }}" hidden>
+                    <input class="product-url" value = "{{ product.get_absolute_url }}" hidden>
+                    <input class="add_in_basket" value = "{% static 'img/header_logo/add_in_basket.png' %}" hidden>
+                    <input class="default_basket" value = "{% static 'img/header_logo/basket.png' %}" hidden>
+                    <img class="add-product-button basket-button" src="{% static 'img/header_logo/basket.png' %}">
+                </div>
             </div>
-            <!-- <p class="product-description">{{ product.description }}</p>
-            <p class="product-price">{{ product.price }}грн</p> -->
         </div>
         {% endfor %}
     </div>

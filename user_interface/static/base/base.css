@@ -10,100 +10,112 @@ body {
     overflow-x: hidden;
 }
 
-footer {
-    font-family: 'Orelega One';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    text-align: center;
-    letter-spacing: 0.215em;
-    color: #FFFFFF;
-    display: grid;
-    place-items: center;
-    background-size: cover;
-    width: 100%;
-    height: 430px;
-    background-image: url(../img/bgs/footer_bg.jpg);
-}
+
 
 header {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
-    gap: 90px;
-    position: fixed;
+    position: sticky;
     width: 100%;
-    height: 100px;
-    left: 0px;
-    top: 0px;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    padding: 0.8em 0;
+    left: 0;
+    top: 0;
     background: #85DB9D;
     margin: 0 auto;
     z-index: 10;
+
 }
 
 .inner-header {
     width: 100%;
     height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     font-family: 'Pacifico', cursive;
-    font-size: 32;
     justify-content: space-around;
 }
 
 .logo-img {
-    width: 75px;
-    height: 75px;
+    width: 50px;
 }
 
 .logo-text {
-    width: 254px;
-    height: 56px;
+    font-size: calc(20px + 12 * (100vw / 1920));
     border: 4px solid #000000;
-    border-radius: 20px;
-    display: flex;
-    font-family: 'Pacifico', cursive;
-    justify-content: center;
-    align-items: center;
-    color: #000000;
-    margin-left: 10px;
+    border-radius: 0.8em;
+    padding: 0 0.8em;
+    margin-left: 0.8em;
+    color: black;
 }
 
 .logo {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     align-items: center;
     text-decoration: none;
 }
 
 .menu-buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
-    justify-content: space-between;
-    width: 600px;
+    justify-content: space-around;
+    width: 40%;
     height: 100%;
     font-family: 'Pacifico', cursive;
-    font-size: 32;
+    font-size: calc(26px + 6 * (100vw / 1920));
 }
 
 .menu-button {
     color: black;
     text-decoration: none;
     transition: 0.3s;
-
 }
 
 .menu-button:hover {
-    line-height: 56px;
     letter-spacing: 0.215em;
     color: #000000;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
 }
 
+.profile_btn {
+    height: 3em;
+    cursor: pointer;
+}
+
+.basket_btn {
+    height: 3em;
+    cursor: pointer;
+}
+
 .active {
     border-bottom: 4px solid black;
+}
+
+.burger_menu {
+    display: none;
 }
 
 .content {
@@ -113,10 +125,36 @@ header {
     justify-content: center;
 }
 
-.profile_btn {
-    width: 70px;
-    height: 70px;
-    cursor: pointer;
+footer {
+    font-family: 'Orelega One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 0.215em;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    width: 100vw;
+    height: fit-content;
+    padding: 3em 0;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    background-image: url(../img/bgs/footer_bg.jpg);
+}
+
+.first_block,
+.second_block {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: space-between;
+    gap: 5vw;
 }
 
 .block_footer_info {
@@ -129,12 +167,15 @@ header {
 
 .inner-footer {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: start;
-    width: 90%;
+    width: 100%;
     height: 100%;
+    gap: 5vw;
 }
+
 
 .our-address,
 .contacts {
@@ -147,12 +188,12 @@ header {
 .navigation h2,
 .contacts h2,
 .social-networks h2 {
-    font-size: 38px;
+    width: 100%;
+    font-size: calc(24px + 8 * (100vw / 1920));
     text-align: center;
     letter-spacing: 0.25em;
-    border-bottom: #85DB9D 3px solid;
+    border-bottom: rgb(133, 219, 157) 3px solid;
     padding: 0 0 2px 0;
-    width: fit-content;
 }
 
 .our-address p {
@@ -161,13 +202,14 @@ header {
     align-items: center;
     line-height: 30px;
     max-width: 300px;
-    font-size: 22px;
+    font-size: calc(12px + 10 * (100vw / 1920));
 }
 
 .navigation {
     display: flex;
     flex-direction: column;
     align-items: start;
+    margin-bottom: 10%;
 }
 
 .navigation p a,
@@ -178,7 +220,7 @@ header {
     font-family: 'Pacifico';
     font-style: normal;
     font-weight: 400;
-    font-size: 32px;
+    font-size: calc(20px + 12 * (100vw / 1920));
     line-height: 50px;
     letter-spacing: 0.215em;
     transition: 0.3s;
@@ -188,11 +230,9 @@ header {
     text-shadow: 2px 4px 2px rgba(255, 255, 255, 0.695);
 }
 
-.contacts h2 {
-    width: 300px;
-}
 
 .contacts p {
+    font-size: calc(12px + 10 * (100vw / 1920));
     line-height: 50px;
     display: flex;
     flex-direction: row;
@@ -200,10 +240,6 @@ header {
     align-items: center;
     padding: 0px;
     gap: 5px;
-}
-
-.social-networks h2 {
-    width: 300px;
 }
 
 .social-networks p {
@@ -223,12 +259,125 @@ header {
 }
 
 .logo-footer .logo-text {
-    padding: 10px;
-    font-size: 32px;
-    line-height: 56px;
-    letter-spacing: 0.215em;
-    width: fit-content;
-    color: #FFFFFF;
-    border: 2px solid #FFFFFF;
-    border-radius: 20px;
+    font-size: calc(18px + 14 * (100vw / 1920));
+    border: 4px solid #ffffff;
+    border-radius: 0.8em;
+    padding: 0 0.8em;
+    margin-left: 0.8em;
+    color: rgb(255, 255, 255);
 }
+
+
+@media screen and (max-width: 1024px) {
+    .logo-text {
+        font-size: calc(20px + (12 + 12 * 0.7) * ((100vw - 320px) / 1920));
+    }
+
+    .menu-buttons {
+        display: none;
+    }
+
+    .burger_menu {
+        display: block;
+        width: 50px;
+        cursor: pointer;
+    }
+
+    .our-address h2,
+    .navigation h2,
+    .contacts h2,
+    .social-networks h2 {
+        font-size: calc(26px + (6 + 6 * 0.7) * ((100vw - 320px) / 1920));
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .menu-buttons {
+        display: none;
+    }
+
+    .burger_menu {
+        display: block;
+        width: 50px;
+        cursor: pointer;
+    }
+
+    .profile_btn {
+        display: none;
+    }
+
+    .first_block,
+    .second_block {
+        justify-content: center;
+    }
+
+}
+
+@media screen and (max-width: 535px){
+    .first_block,
+    .second_block {
+        justify-content: start;
+    }
+
+    .inner-footer{
+        justify-content: start;
+    }
+
+    .first_block{
+        flex-direction: column-reverse;
+    }
+
+    .our-address ,
+    .navigation ,
+    .contacts ,
+    .social-networks  {
+        align-items: start;
+    }
+    .our-address h2,
+    .navigation h2,
+    .contacts h2,
+    .social-networks h2 {
+        text-align: start;
+        align-items: start;
+        width: 60vw;
+    }
+
+    .our-address ,
+    .navigation ,
+    .contacts ,
+    .social-networks  {
+        text-align: start;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .inner-header {
+        justify-content: space-between;
+        padding: 0 2vw;
+    }
+
+    .logo-text{
+        margin: 0;
+    }
+
+    .logo-img {
+        display: none;
+    }
+}
+
+.modal-basket {
+    position: fixed;
+    display: none;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50vw;
+    height: 80vh;
+    background: #ffffff;
+    border-radius: 20px;
+    z-index: 15;
+    overflow-y: visible;
+}
+
