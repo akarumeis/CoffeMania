@@ -268,6 +268,44 @@ footer {
 }
 
 
+.modal-basket {
+    display: flex;
+    position: fixed;
+    display: none;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50vw;
+    height: 80vh;
+    background: #2c2c2c;
+    border-radius: 20px;
+    z-index: 15;
+    overflow-y: auto;
+}
+
+.modal-profile {
+    display: flex;
+    position: fixed;
+    display: none;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50vw;
+    height: 80vh;
+    background: #2c2c2c;
+    border-radius: 20px;
+    z-index: 15;
+    overflow-y: auto;
+}
+
+@media screen and (max-width: 1280px){
+    .modal-basket{
+        width: 80vw;
+    }
+}
+
 @media screen and (max-width: 1024px) {
     .logo-text {
         font-size: calc(20px + (12 + 12 * 0.7) * ((100vw - 320px) / 1920));
@@ -288,6 +326,10 @@ footer {
     .contacts h2,
     .social-networks h2 {
         font-size: calc(26px + (6 + 6 * 0.7) * ((100vw - 320px) / 1920));
+    }
+
+    .modal-basket{
+        width: 70vw;
     }
 }
 
@@ -310,7 +352,9 @@ footer {
     .second_block {
         justify-content: center;
     }
-
+    .modal-basket{
+        width: 80vw;
+    }
 }
 
 @media screen and (max-width: 535px){
@@ -364,20 +408,9 @@ footer {
     .logo-img {
         display: none;
     }
+    .modal-basket{
+        width: 90vw;
+    }
 }
 
-.modal-basket {
-    position: fixed;
-    display: none;
-    flex-direction: column;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50vw;
-    height: 80vh;
-    background: #ffffff;
-    border-radius: 20px;
-    z-index: 15;
-    overflow-y: visible;
-}
 

@@ -4,6 +4,7 @@ from django.urls import path
 from user_interface.views import show_contact_page, show_main_page
 from shop.views import show_shop, show_product
 from basket.views import *
+from user_profile.views import show_user_profile
 from django.conf.urls.static import static
 from authenticate.views import *
 from . import settings
@@ -20,4 +21,6 @@ urlpatterns = [
     path('login/', show_login, name = 'login_page'),
     path('user_reg/', register_user, name='register'),
     path('user_log/', login_user, name='login'),
+    path('change_amount/', change_amount, name='change_amount'),
+    path('user_profile/', show_user_profile, name='user_profile'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

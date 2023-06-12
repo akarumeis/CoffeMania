@@ -15,9 +15,9 @@
 
 <body>
     <div class="header-basket">
-        <h1>Кошик</h1> <span>&Cross;</span>
+        <h1>Кошик</h1> <span class="close_basket">&Cross;</span>
     </div>
-    <div class="content">
+    <div class="content basket_content">
         {% csrf_token %}
         <input class="delete-product" value="{% url 'delete_from_basket' %}" hidden>
 
@@ -26,19 +26,23 @@
             <div class="product_info">
                 <img src="{{ product_in_basket.product.image.url }}" alt="{{ product_in_basket.product.name }}"
                     class="image_product">
-                <div class="name_price">
-                    <h2 class="product-name">{{product_in_basket.product.name}}</h2>
-                    <p class="product-price">Кількість: {{ product_in_basket.amount }}</p>
-                    <p class="product-price">{{ product_in_basket.product.price }}грн</p>
+                <div class="name">
+                    <a class="product-name"
+                        href="{{ product_in_basket.product.get_absolute_url }}">{{product_in_basket.product.name}}</a>
                 </div>
             </div>
-            <div class="button_bs">
-                <!-- <button class="product-detail-button" value="{{product_in_basket.pk}}">Детальніше</button> -->
-                <a class="product-item" href="{{ product_in_basket.product.get_absolute_url }}"
-                    class="product-detail-button">Детальніше</a>
-                <button class="product-remove-button" value="{{product_in_basket.pk}}"><img
-                        src="{% static 'basket_img/del_basket.png' %}"></button>
+            <div class="settings_product">
+                <input class="change_amount" value="{% url 'change_amount' %}" hidden>
+                <input class="product_pk" value="{{product_in_basket.pk}}" hidden>
+                <p class="product-amount"><span data-value="-1" class="change_amount minus">&minus;</span> <span class="amount">{{ product_in_basket.amount }}</span> <span data-value="+1" class="change_amount plus">&plus;</span></p>
+                <div class="buttons_product">
+                    <!-- <button class="product-detail-button" value="{{product_in_basket.pk}}">Детальніше</button> -->
+                    <button class="product-remove-button" value="{{product_in_basket.pk}}"><img
+                            src="{% static 'img/basket_img/del_basket.png' %}"></button>
+                    <p class="product-price">{{ product_in_basket.product.price }} &#8372 </p>
+                </div>
             </div>
+
             <!-- <p class="product-description">{{ product_in_basket.product.description }}</p> -->
         </div>
 
@@ -55,7 +59,20 @@
             </div>
             {% endif %}
         </div> -->
-        <button class="buy-button">Замовити</button>
+        {% if products_in_basket %}
+        <div class="button_block">
+            <a href="{% url 'menu_page' %}">Продовжити покупки</a>
+            <button class="buy-button">Замовити</button>
+        </div>
+        {% else %}
+        <div class="empty_inner_basket_div">
+            <img class="empty_inner_basket" src="{% static 'img/header_logo/empty_inner_basket.png' %}">
+            <h1>Кошик порожній</h1>
+            <a href="{% url 'menu_page' %}">За покупками</a>
+        </div>
+
+        {% endif %}
+
     </div>
 
 </body>

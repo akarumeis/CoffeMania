@@ -1,0 +1,20 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'user_css/user.css' %}">
+    <script src="{% static 'user_js/user.js' %}" defer></script>
+    <title></title>
+</head>
+<body>
+    <div class="header-profile">
+        <h1>Ваш профіль</h1> <span class="close_profile">&Cross;</span>
+    </div>
+    <div class="content profile_content">
+        {% csrf_token %}
+
+    </div>
+</body>
+</html>

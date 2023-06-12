@@ -16,6 +16,7 @@
 
 <body>
     <input class="basket-url" value="{% url 'basket_page' %}" hidden>
+    <input class="profile-url" value="{% url 'user_profile' %}" hidden>
     <header>
         <div class="inner-header">
             <img class="burger_menu" src="{% static 'img/header_logo/burger_menu.png' %}">
@@ -82,10 +83,9 @@
         </div>
     </footer>
 
-    <div class="modal-basket">
-        
-    </div>
-    <div class="modal-basket-cloth">
+    <div class="modal-basket"></div>
+    <div class="modal-basket-cloth"></div>
+    <div class="modal-profile"></div>
 
     </div>
 </body>

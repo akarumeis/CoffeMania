@@ -32,3 +32,15 @@ def delete_from_basket(request):
     # Удаляем продукт из корзины
     ProductInBasket.objects.get(pk=product_id).delete()
     return JsonResponse({})
+
+
+def change_amount(request):
+    operation = request.POST.get('operation')
+    product = ProductInBasket.objects.get(pk = request.POST.get('product_pk'))
+    if product.amount == 1 and operation == '-1':
+        pass
+    else:
+        product.amount = product.amount + int(operation)
+        product.save()
+         
+    return JsonResponse({})
