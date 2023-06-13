@@ -8,36 +8,46 @@ $(document).ready(function () {
   });
 
   $(".change_amount").click(function () {
-    // Получить CSRF-токен
     const csrf = $("input[name=csrfmiddlewaretoken]").val();
     let product_pk = $(this).parent().parent().find(".product_pk").val();
     let url = $(this).parent().parent().find(".change_amount").val();
     let div = $(this).parent().find(".amount");
     let inner_div = +$(this).parent().find(".amount").html();
+    let product_price = $(this).parent().parent().find('.buttons_product .product-price span')
+    let default_product_price = +$(this).parent().parent().find('.buttons_product .default_price')
     let operation = +$(this).data("value");
-    if (inner_div > 0 && +inner_div <= 99) {
-      if (inner_div == 1 && operation == -1) {
-        div.html("1");
-        div.parent().find(".minus").css("color", "grey");
-      } else {
-        $.ajax({
-          type: "POST",
-          url: url,
-          data: { csrfmiddlewaretoken: csrf, product_pk: product_pk, operation: operation },
-          success: function () {
-            div.html(inner_div + operation);
-            div.parent().find(".minus").css("color", "black");
-          },
-        });
-      }
-    }
-    let div_any = $(this).parent().find(".amount");
-    if (div_any.html() == "1") {
-      div_any.parent().find(".minus").css("color", "grey");
+    
+    if (inner_div + operation <= 0) {
+      div.html("1");
+      div.parent().find(".minus").css("color", "grey");
+    } else if (inner_div + operation >= 99) {
+      div.html("99");
+      div.parent().find(".plus").css("color", "grey");
     } else {
-      div_any.parent().find(".minus").css("color", "black");
+      div.html(inner_div + operation);
+      div.parent().find(".minus").css("color", "black");
+      div.parent().find(".plus").css("color", "black");
     }
+    
+    
+
+
+
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: {
+        csrfmiddlewaretoken: csrf,
+        product_pk: product_pk,
+        operation: operation,
+      },
+      success: function () {
+        inner_div = inner_div + operation; // Обновляем значение inner_div
+        // Дополнительный код, который может быть здесь
+      },
+    });
   });
+  
 
   // Обработчик клика на кнопку покупки
   $(".buy-button").click(function showBuyModalWindow() {

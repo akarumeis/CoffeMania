@@ -10,7 +10,7 @@
     <h1 class="title-form">Вхід</h1>
     <form class="form" method="POST">
         {% csrf_token %}
-        <input class="redirect_url" value="{% url 'basket_page' %}" hidden>
+        <input class="redirect_url" value="{% url 'main_page' %}" hidden>
         <div class="inputs">
             <input type="text" class="reg_input" id="phone" name="phone" placeholder="Номер телефона" autocomplete="off"
                 required><br>

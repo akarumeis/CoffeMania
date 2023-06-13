@@ -1,3 +1,5 @@
+
+
 $(document).ready(function () {
   // Добавление класса "active" к активному пункту меню
   $(".menu-button").each(function () {
@@ -6,10 +8,24 @@ $(document).ready(function () {
     }
   });
 
+  $(".plus-main").click(function (){
+    let amount = $(this).parent().find(".amount");
+    if (amount.html() < 99) {
+      amount.html(+amount.html() + 1)
+    };
+  });
+  $(".minus-main").click(function (){
+    let amount = $(this).parent().find(".amount");
+    if (amount.html() > 1) {
+      amount.html(+amount.html() - 1)
+    };
+  });
+
   // Обработчик клика на кнопке добавления товара
   $(".add-product-button").click(function (e) {
     e.preventDefault();
     const csrf = $("input[name=csrfmiddlewaretoken]").val();
+    let amount = $(this).parent().find(".amount-input").val();
     let product_pk = $(this).parent().find('[class="product-pk"]').val();
     let url = $(this).parent().find('[class="product-url"]').val();
 
@@ -19,7 +35,7 @@ $(document).ready(function () {
     $.ajax({
       type: "POST",
       url: url,
-      data: { csrfmiddlewaretoken: csrf, product_pk: product_pk },
+      data: { csrfmiddlewaretoken: csrf, product_pk: product_pk, amount:amount},
       success: function () {
         addButton.attr("src", addButton.siblings(".add_in_basket").val());
         setTimeout(function () {

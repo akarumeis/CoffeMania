@@ -4,12 +4,14 @@ from django.urls import path
 from user_interface.views import show_contact_page, show_main_page
 from shop.views import show_shop, show_product
 from basket.views import *
-from user_profile.views import show_user_profile
+from user_profile.views import show_user_profile, editing_profile
 from django.conf.urls.static import static
 from authenticate.views import *
 from . import settings
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('admin/', admin.site.urls),
     path('', show_main_page, name = 'main_page'),
     path('menu/', show_shop, name = 'menu_page'),
@@ -23,4 +25,5 @@ urlpatterns = [
     path('user_log/', login_user, name='login'),
     path('change_amount/', change_amount, name='change_amount'),
     path('user_profile/', show_user_profile, name='user_profile'),
+    path('editing_profile/', editing_profile, name='editing_profile'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

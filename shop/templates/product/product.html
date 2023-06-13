@@ -1,5 +1,9 @@
+
 {% extends 'base/base.html' %}
+{% load static %}
 {% block title %}{{ product.name }}{% endblock%}
+{% block css %}
+<link rel="stylesheet" href="{% static 'shop/shop.css' %}">{% endblock %}
 {% block content %}
 <div id="content">
     <div class="product-row">
@@ -12,6 +16,7 @@
             {% csrf_token %}
             <input name="product-pk" value = "{{ product.pk }}" hidden>
             <input name="product-url" value = "{{ product.get_absolute_url }}" hidden>
+            <p class="product-amount-main"><span data-value="-1" class="change-amount-main minus-main">&minus;</span> <span class="amount">1</span> <span data-value="+1" class="change-amount-main plus-main">&plus;</span></p>
             <button class="add-product-button" value="{{ product.get_absolute_url }}">Додати в кошик</button>
         </form>
     </div>

@@ -15,8 +15,11 @@ def show_basket(request):
         # Получаем идентификатор пользователя из сеанса
         user_id = session.get_decoded().get('_auth_user_id')
         # Получаем все продукты в корзине для указанного пользователя
-        products_in_basket = ProductInBasket.objects.filter(
-            user=User.objects.get(id=user_id))
+        products_in_basket = ProductInBasket.objects.filter(user=User.objects.get(id=user_id))
+        # Перебераем продукты в корзине
+        for product_in_basket in products_in_basket:
+            product_in_basket.products_price = int(product_in_basket.product.price) * int(product_in_basket.amount)
+            product_in_basket.save()
 
     except:
         # Если не удалось получить сеанс или идентификатор пользователя, получаем все продукты в корзине для текущего ключа сеанса
@@ -37,10 +40,15 @@ def delete_from_basket(request):
 def change_amount(request):
     operation = request.POST.get('operation')
     product = ProductInBasket.objects.get(pk = request.POST.get('product_pk'))
-    if product.amount == 1 and operation == '-1':
-        pass
+    
+    if product.amount + int(operation) <= 0:
+        product.amount = 1
+        
+    elif product.amount + int(operation) >= 99:
+        product.amount = 99
+
     else:
         product.amount = product.amount + int(operation)
-        product.save()
-         
+    product.save()
+        
     return JsonResponse({})

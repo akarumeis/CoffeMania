@@ -30,9 +30,9 @@
                 <a href="{% url 'contact_page' %}" class="menu-button">Контакти</a>
 
             </div>
-
-            <a><img class="basket_btn" src="{% static 'img/header_logo/basket.png' %}"></a>
-            <img class="profile_btn" src="{% static 'img/header_logo/profile.png' %}">
+            <img class="basket_btn" src="{% static 'img/header_logo/basket.png' %}">
+            <span class="profile_btn">{{ user.first_name }}<img src="{% static 'img/header_logo/profile.png' %}"></span>
+            
 
         </div>
     </header>

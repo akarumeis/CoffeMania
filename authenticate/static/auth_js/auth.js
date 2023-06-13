@@ -1,6 +1,6 @@
 $(document).ready(function () {
   $("#phone").inputmask("+(380) 99-999-9999");
-  $(".reg_button").click(function (e) {
+  $(".reg").click(function (e) {
     e.preventDefault();
     if ($("#password").val().length > 7) {
       if ($("#password").val() === $("#confirm_password").val()) {

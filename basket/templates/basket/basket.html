@@ -39,7 +39,8 @@
                     <!-- <button class="product-detail-button" value="{{product_in_basket.pk}}">Детальніше</button> -->
                     <button class="product-remove-button" value="{{product_in_basket.pk}}"><img
                             src="{% static 'img/basket_img/del_basket.png' %}"></button>
-                    <p class="product-price">{{ product_in_basket.product.price }} &#8372 </p>
+                    <input class="default_price" value="{{ product_in_basket.product.price }}" hidden>
+                    <p class="product-price"><span>{{ product_in_basket.products_price }}</span> &#8372 </p>
                 </div>
             </div>
 

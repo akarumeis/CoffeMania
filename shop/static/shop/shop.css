@@ -26,6 +26,7 @@
 }
 
 .product-all {
+    border: 2px solid white;
     background-color: #85DB9D;
     display: flex;
     flex-direction: column;
@@ -95,6 +96,26 @@
     letter-spacing: 0.05em;
     color: #000000;
     height: 50%;
+}
+
+.minus-main,
+.plus-main {
+    cursor: pointer;;
+}
+
+.product-amount-main{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-size: 30;
+    text-decoration: none;
+}
+.product-amount-main{
+    user-select: none;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE/Edge */
+    user-select: none;
+
 }
 
 @media screen and (max-width: 1920px){

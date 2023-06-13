@@ -55,6 +55,7 @@
     height: fit-content;
     justify-content: space-around;
     align-items: center;
+    padding: 3% 1%;
 }
 
 .buy-button {

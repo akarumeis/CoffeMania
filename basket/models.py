@@ -8,3 +8,4 @@ class ProductInBasket(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     amount = models.IntegerField(default=1)
+    products_price = models.IntegerField(null=True, blank=True)

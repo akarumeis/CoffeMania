@@ -10,7 +10,7 @@
     <h1 class="title-form">Реєстрація</h1>
     <form class="form" method="POST">
         {% csrf_token %}
-        <input class="redirect_url" value="{% url 'basket_page' %}" hidden>
+        <input class="redirect_url" value="{% url 'main_page' %}" hidden>
         <div class="inputs">
             <input type="text" class="reg_input name" id="firstname" name="firstname" placeholder="Прізвище" autocomplete="off"
                 required><br>
@@ -26,7 +26,7 @@
                 placeholder="Продоблюйте пароль" autocomplete="off" required>
         </div>
         <p class="error"></p>
-        <button class="reg_button" value="{% url 'register' %}">Зареєструватись</button>
+        <button class="reg_button reg" value="{% url 'register' %}">Зареєструватись</button>
 
     </form>
     <div class="nav_btn">
