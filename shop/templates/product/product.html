@@ -7,18 +7,47 @@
 {% block content %}
 <div id="content">
     <div class="product-row">
-        <!-- Отображение информации о товаре -->
-        <h2>{{ product.name }}</h2>
-        <img src="{{ product.image.url }}" alt="{{ product.name }}">
-        <p class="product-description">{{ product.description }}</p>
-        <p class="product-price">{{ product.price }}грн</p>
-        <form method="post" id="basket_form">
-            {% csrf_token %}
-            <input name="product-pk" value = "{{ product.pk }}" hidden>
-            <input name="product-url" value = "{{ product.get_absolute_url }}" hidden>
-            <p class="product-amount-main"><span data-value="-1" class="change-amount-main minus-main">&minus;</span> <span class="amount">1</span> <span data-value="+1" class="change-amount-main plus-main">&plus;</span></p>
-            <button class="add-product-button" value="{{ product.get_absolute_url }}">Додати в кошик</button>
-        </form>
+        <div class="product-main">  
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            <div class="product-name-price">
+                <h2>{{ product.name }}</h2>
+                <p class="product-price">{{ product.price }}грн</p>
+            </div>
+            <div class="product-buttons">
+                <form method="post" id="basket_form">
+                    <div class="product-amount-totalprice">
+                        {% csrf_token %}
+                        <input name="product-pk" value = "{{ product.pk }}" hidden>
+                        <input name="product-url" value = "{{ product.get_absolute_url }}" hidden>
+                        <input class="amount-input" value = "1" hidden>
+                        <input class="" value="" hidden>
+                        <p class="product-amount-main">
+                            <span data-value="-1" class="change-amount-main minus-main">&minus;</span> 
+                            <span class="amount">1</span>
+                            <span data-value="+1" class="change-amount-main plus-main">&plus;</span>
+                        </p>
+                        <p class="product-totalprice">912грн</p>
+                    </div>
+                    <button class="add-product-button" value="{{ product.get_absolute_url }}">Додати у кошик</button>
+                </form>
+            </div>
+        </div>
+        <div class="product-description">
+            <p>{{ product.description }}</p>
+        </div>
     </div>
 </div>
 {% endblock %}
+<!-- Отображение информации о товаре
+            <h2>{{ product.name }}</h2>
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            <p class="product-description">{{ product.description }}</p>
+            <p class="product-price">{{ product.price }}грн</p>
+            <form method="post" id="basket_form">
+                {% csrf_token %}
+                <input name="product-pk" value = "{{ product.pk }}" hidden>
+                <input name="product-url" value = "{{ product.get_absolute_url }}" hidden>
+                <input class="amount-input" value = "1" hidden>
+                <p class="product-amount-main"><span data-value="-1" class="change-amount-main minus-main">&minus;</span> <span class="amount">1</span> <span data-value="+1" class="change-amount-main plus-main">&plus;</span></p>
+                <button class="add-product-button" value="{{ product.get_absolute_url }}">Додати в кошик</button>
+            </form> -->

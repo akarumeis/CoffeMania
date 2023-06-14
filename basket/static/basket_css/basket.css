@@ -249,6 +249,18 @@
     color: #18de4c;
 }
 
+
+.full_price_div{
+    font-weight: 700;
+    color: white;
+    font-size: calc(18px + 4 * (100vw / 1920));
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 1%;
+    
+}
+
+
 @media screen and (max-width: 1280px) {
     .product-name{
         width: 20vw;

@@ -25,8 +25,14 @@ def show_basket(request):
         # Если не удалось получить сеанс или идентификатор пользователя, получаем все продукты в корзине для текущего ключа сеанса
         products_in_basket = ProductInBasket.objects.filter(
             session_key=session_key)
+    
+    full_price = 0
 
-    return render(request, 'basket/basket.html', context={'products_in_basket': products_in_basket})
+    for product_in_basket in products_in_basket:
+        full_price += int(product_in_basket.products_price)
+        
+
+    return render(request, 'basket/basket.html', context={'products_in_basket': products_in_basket, "full_price":full_price})
 
 
 def delete_from_basket(request):

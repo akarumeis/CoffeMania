@@ -8,4 +8,9 @@ class ProductInBasket(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     amount = models.IntegerField(default=1)
-    products_price = models.IntegerField(null=True, blank=True)
+    products_price = models.IntegerField(blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        if not self.products_price:
+            self.products_price = self.product.price * self.amount
+        super().save(*args, **kwargs)

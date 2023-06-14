@@ -13,10 +13,11 @@ $(document).ready(function () {
     let url = $(this).parent().parent().find(".change_amount").val();
     let div = $(this).parent().find(".amount");
     let inner_div = +$(this).parent().find(".amount").html();
-    let product_price = $(this).parent().parent().find('.buttons_product .product-price span')
-    let default_product_price = +$(this).parent().parent().find('.buttons_product .default_price')
     let operation = +$(this).data("value");
-    
+    let product_price = $(this).parent().parent().find('.buttons_product .product-price span');
+    let default_product_price = +$(this).parent().parent().find('.buttons_product .default_price').val();
+    let inner_full_price = $('.full_price_div span')
+
     if (inner_div + operation <= 0) {
       div.html("1");
       div.parent().find(".minus").css("color", "grey");
@@ -28,10 +29,7 @@ $(document).ready(function () {
       div.parent().find(".minus").css("color", "black");
       div.parent().find(".plus").css("color", "black");
     }
-    
-    
-
-
+    let change_inner_div = +$(this).parent().find(".amount").html();
 
     $.ajax({
       type: "POST",
@@ -42,8 +40,13 @@ $(document).ready(function () {
         operation: operation,
       },
       success: function () {
-        inner_div = inner_div + operation; // Обновляем значение inner_div
-        // Дополнительный код, который может быть здесь
+        inner_div = inner_div + operation;
+        product_price.html(change_inner_div * default_product_price);
+        let full_price = 0
+        $(".product-price span").each(function (index, price) {
+          full_price += +$(price).html()
+        });
+        inner_full_price.html(full_price)
       },
     });
   });

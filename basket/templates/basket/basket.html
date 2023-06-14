@@ -50,7 +50,7 @@
         {% endfor %}
 
 
-        <!-- <div class="buy-modal-window">
+        <div class="buy-modal-window">
             {% if request.user.is_authenticated != True %}
             <div class="close-button">&Cross;</div>
             <h2 class="text-order">Способи оформлення</h2>
@@ -59,10 +59,11 @@
                 <p><a href="{% url 'reg_page' %}" class="order-button registration-button">Реєстрація</a></p>
             </div>
             {% endif %}
-        </div> -->
+        </div>
         {% if products_in_basket %}
         <div class="button_block">
             <a href="{% url 'menu_page' %}">Продовжити покупки</a>
+            <span class="full_price_div">Всього: <span>{{ full_price }}</span>&#8372</span>
             <button class="buy-button">Замовити</button>
         </div>
         {% else %}
@@ -71,7 +72,6 @@
             <h1>Кошик порожній</h1>
             <a href="{% url 'menu_page' %}">За покупками</a>
         </div>
-
         {% endif %}
 
     </div>

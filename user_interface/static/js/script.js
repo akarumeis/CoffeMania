@@ -10,14 +10,24 @@ $(document).ready(function () {
 
   $(".plus-main").click(function (){
     let amount = $(this).parent().find(".amount");
-    if (amount.html() < 99) {
+    let amount_input = $(this).parent().parent().find(".amount-input");
+    if (amount.html() > 99) {
+      amount.html(99)
+      amount_input.html(99)
+    } else if (amount.html() < 99) {
       amount.html(+amount.html() + 1)
+      amount_input.val(amount.html())
     };
   });
   $(".minus-main").click(function (){
     let amount = $(this).parent().find(".amount");
-    if (amount.html() > 1) {
+    let amount_input = $(this).parent().parent().find(".amount-input");
+    if (amount.html() < 1) {
+      amount.html(1)
+      amount_input.html(1)
+    } else if (amount.html() > 1) {
       amount.html(+amount.html() - 1)
+      amount_input.val(amount.html())
     };
   });
 
@@ -27,7 +37,7 @@ $(document).ready(function () {
     const csrf = $("input[name=csrfmiddlewaretoken]").val();
     let amount = $(this).parent().find(".amount-input").val();
     let product_pk = $(this).parent().find('[class="product-pk"]').val();
-    let url = $(this).parent().find('[class="product-url"]').val();
+    let url = $(this).parent().find('.product-url').val();
 
     // Сохраняем ссылку на текущий элемент
     let addButton = $(this);
