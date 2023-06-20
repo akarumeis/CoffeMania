@@ -6,6 +6,7 @@ from shop.views import show_shop, show_product
 from basket.views import *
 from user_profile.views import show_user_profile, editing_profile
 from django.conf.urls.static import static
+from ordering.views import ordering
 from authenticate.views import *
 from . import settings
 from django.contrib.auth import views as auth_views
@@ -26,4 +27,6 @@ urlpatterns = [
     path('change_amount/', change_amount, name='change_amount'),
     path('user_profile/', show_user_profile, name='user_profile'),
     path('editing_profile/', editing_profile, name='editing_profile'),
+    path('ordering/', ordering, name='ordering'),
+    path('update_basket_counter/', update_basket_counter, name='updater_count')
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

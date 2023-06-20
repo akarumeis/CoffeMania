@@ -14,3 +14,6 @@ class ProductInBasket(models.Model):
         if not self.products_price:
             self.products_price = self.product.price * self.amount
         super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.product.name

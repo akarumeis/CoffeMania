@@ -14,9 +14,11 @@ $(document).ready(function () {
     let div = $(this).parent().find(".amount");
     let inner_div = +$(this).parent().find(".amount").html();
     let operation = +$(this).data("value");
-    let product_price = $(this).parent().parent().find('.buttons_product .product-price span');
-    let default_product_price = +$(this).parent().parent().find('.buttons_product .default_price').val();
-    let inner_full_price = $('.full_price_div span')
+    let product_price = $(this).parent().parent().find(".buttons_product .product-price span");
+    let default_product_price = +$(this).parent().parent().find(".buttons_product .default_price").val();
+    let inner_full_price = $(".full_price_div span");
+  
+    
 
     if (inner_div + operation <= 0) {
       div.html("1");
@@ -28,29 +30,28 @@ $(document).ready(function () {
       div.html(inner_div + operation);
       div.parent().find(".minus").css("color", "black");
       div.parent().find(".plus").css("color", "black");
-    }
-    let change_inner_div = +$(this).parent().find(".amount").html();
 
-    $.ajax({
-      type: "POST",
-      url: url,
-      data: {
-        csrfmiddlewaretoken: csrf,
-        product_pk: product_pk,
-        operation: operation,
-      },
-      success: function () {
-        inner_div = inner_div + operation;
-        product_price.html(change_inner_div * default_product_price);
-        let full_price = 0
-        $(".product-price span").each(function (index, price) {
-          full_price += +$(price).html()
-        });
-        inner_full_price.html(full_price)
-      },
-    });
+      let change_inner_div = +$(this).parent().find(".amount").html();
+      $.ajax({
+        type: "POST",
+        url: url,
+        data: {
+          csrfmiddlewaretoken: csrf,
+          product_pk: product_pk,
+          operation: operation,
+        },
+        success: function () {
+          inner_div = inner_div + operation;
+          product_price.html(change_inner_div * default_product_price);
+          let full_price = 0;
+          $(".product-price-basket").each(function (index, price) {
+            full_price += +$(price).html();
+          });
+          inner_full_price.html(full_price);
+        },
+      });
+    }
   });
-  
 
   // Обработчик клика на кнопку покупки
   $(".buy-button").click(function showBuyModalWindow() {
@@ -75,11 +76,12 @@ $(document).ready(function () {
     // Удалить элемент-затемнитель
     document.querySelector(".cover").remove();
     // Разблокировать прокрутку страницы
-    $("body").css("overflow", "auto");
+    $("body").css("overflow", "hidden");
   });
 
   // Обработчик клика на кнопку удаления товара
   $(".product-remove-button").click(function () {
+    let updater_url = $(".updater-url").val();
     // Получить CSRF-токен
     const csrf = $("input[name=csrfmiddlewaretoken]").val();
     // Получить идентификатор удаляемого товара
@@ -95,6 +97,13 @@ $(document).ready(function () {
           let container = $(".modal-basket");
           // Вставка полученного HTML-содержимого в контейнер
           container.html(data);
+        });
+        $.ajax({
+          type: "GET",
+          url: updater_url,
+          success: (response) => {
+            $(".products_amount").html(response.count_product);
+          },
         });
       },
     });

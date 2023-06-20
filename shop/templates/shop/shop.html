@@ -17,7 +17,7 @@
             <img class = 'product-img' src="{{ product.image.url }}" alt="{{ product.name }}">
             <div class="desc">
                 <p>{{ product.name }}</p>
-                <h3>{{ product.price }}грн</h3>
+                <h3>{{ product.price }} <span>&#8372</span> </h3>
                 <div class="buttons-in-product">
                     <a class="product-button" href="{{ product.get_absolute_url }}">Детальніше</a>
                     <input class="product-pk" value = "{{ product.pk }}" hidden>

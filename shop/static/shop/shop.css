@@ -87,7 +87,7 @@
 
 .product-img {
     width: 62%;
-    border-radius: 100%;
+    border-radius: 20px;
 }
 
 .product-all .desc p {
@@ -96,6 +96,15 @@
     letter-spacing: 0.05em;
     color: #000000;
     height: 50%;
+}
+
+.product-all .desc h3{
+    font-size: calc(20px + 8 * (100vw / 1920));
+}
+
+.product-all .desc h3 span{
+    font-family: 'Roboto';
+    font-style: normal;
 }
 
 .minus-main,
@@ -166,8 +175,8 @@
         height: 350px;          
     }
     .product-img {
-        width: 50%;
-        border-radius: 100%;
+        width: 60%;
+        border-radius: 20px;
     }
 
     

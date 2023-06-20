@@ -1,3 +1,7 @@
+html {
+    overflow-x: hidden;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,8 +11,8 @@
 .face_div {
     background-size: cover;
     background-image: url(../img/bgs/rest_bg.jpg);
-    width: 100%;
-    height: 965px;
+    width: 100vw;
+    height: 100vh;
 
     display: flex;
     flex-direction: column;
@@ -32,7 +36,7 @@
     font-family: 'Pacifico';
     font-style: normal;
     font-weight: 400;
-    font-size: 64px;
+    font-size: calc(36px + 20 * (100vw / 1920));
     line-height: 112px;
     letter-spacing: 0.215em;
     color: #FFFFFF;
@@ -51,32 +55,24 @@
     font-family: 'Roboto Condensed';
     font-style: normal;
     font-weight: 700;
-    font-size: 40px;
+    font-size: calc(30px + 10 * (100vw / 1920));
     line-height: 47px;
     /* identical to box height */
 
     letter-spacing: 0.05em;
-
+    text-align: center;
     color: #A7FFC0;
 }
 
 .buy_btn {
     text-decoration: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    gap: 10px;
-    width: 350px;
-    height: 100px;
+    padding: 1vh 2vw;
     border: 3px solid #85DB9D;
     border-radius: 13px;
     font-family: 'Pacifico';
     font-style: normal;
     font-weight: 400;
-    font-size: 46px;
-    line-height: 81px;
+    font-size: calc(32px + 14 * (100vw / 1920));
     /* identical to box height */
     letter-spacing: 0.215em;
     color: #FFFFFF;
@@ -93,10 +89,9 @@
 }
 
 .main_content {
-    background-size: cover;
     background-image: url(../img/bgs/bg.jpg);
-    width: 100%;
-    height: 3300px;
+    width: 100vw;
+    height: 3000px;
     border: 5px solid #85DB9D;
     display: flex;
     flex-direction: column;
@@ -116,7 +111,8 @@
     font-family: 'Pacifico';
     font-style: normal;
     font-weight: 400;
-    font-size: 48px;
+    font-size: calc(30px + 18 * (100vw / 1920));
+    ;
     line-height: 84px;
     text-align: center;
     letter-spacing: 0.05em;
@@ -139,7 +135,7 @@
     padding: 0px;
     gap: 10px;
     justify-content: center;
-    width: 300px;
+    width: 22vw;
     height: 450px;
 
     background: rgba(44, 44, 44, 0.88);
@@ -154,7 +150,8 @@
     font-family: 'Orelega One';
     font-style: normal;
     font-weight: 400;
-    font-size: 32px;
+    font-size: calc(24px + 8 * (100vw / 1920));
+    ;
     height: 136px;
     text-align: center;
     letter-spacing: 0.215em;
@@ -166,7 +163,7 @@
     align-items: center;
     justify-content: center;
     padding: 80px 0px;
-    width: 90%;
+    width: 100%;
 }
 
 .we_offer h2 {
@@ -175,7 +172,8 @@
     font-family: 'Pacifico';
     font-style: normal;
     font-weight: 400;
-    font-size: 48px;
+    font-size: calc(30px + 18 * (100vw / 1920));
+    ;
     line-height: 84px;
     letter-spacing: 0.05em;
     color: #FFFFFF;
@@ -183,9 +181,12 @@
 }
 
 .commoditys {
+    margin: 0 auto;
+    width: 80vw;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     gap: 90px;
 }
 
@@ -211,19 +212,17 @@
     justify-content: space-between;
     align-items: center;
     padding: 0px;
-    gap: 10px;
-
-    width: fit-content;
-    height: 172px;
+    width: 80%;
+    height: 90%;
 }
 
 .commodity .desc p {
-    width: 300px;
+    width: 100%;
     height: 106px;
 
     font-family: 'Pacifico';
     font-weight: 400;
-    font-size: 29px;
+    font-size: calc(20px + 4 * (100vw / 1920));
     text-align: center;
     letter-spacing: 0.05em;
 
@@ -237,14 +236,15 @@
     align-items: center;
     padding: 10px;
     gap: 10px;
-    width: 197px;
+    width: 80%;
     height: 56px;
     border: 3px solid #000000;
     border-radius: 13px;
     font-family: 'Pacifico';
     font-style: normal;
     font-weight: 400;
-    font-size: 30px;
+    font-size: calc(16px + 10 * (100vw / 1920));
+    ;
     line-height: 42px;
     letter-spacing: 0.215em;
     color: #ffffff;
@@ -270,7 +270,7 @@
 
 .contact_form {
     margin-top: 90px;
-    width: 100%;
+    width: 100vw;
     height: 600px;
     display: flex;
     justify-content: space-around;
@@ -297,7 +297,7 @@
 
 .social-media-in-form h2,
 .feedback-form h2 {
-    font-size: 43px;
+    font-size: calc(20px + 23 * (100vw / 1920));
     line-height: 57px;
     /* identical to box height */
     text-align: center;
@@ -307,7 +307,7 @@
 
 .social-media-in-form h3,
 .feedback-form h3 {
-    font-size: 28px;
+    font-size: calc(15px + 13 * (100vw / 1920));
     line-height: 34px;
     text-align: center;
     letter-spacing: 0.215em;
@@ -328,7 +328,7 @@
     font-family: 'Post No Bills Jaffna SemiBold';
     font-style: normal;
     font-weight: 600;
-    font-size: 32px;
+    font-size: calc(20px + 12 * (100vw / 1920));
     line-height: 48px;
     /* identical to box height */
     text-align: center;
@@ -355,7 +355,7 @@
 .social-media h2 {
     display: flex;
     justify-content: start;
-    font-size: 35px;
+    font-size: calc(20px + 15 * (100vw / 1920));
     line-height: 48px;
     margin-bottom: 10%;
 }
@@ -363,7 +363,8 @@
 .contact p,
 .social-media p {
     margin-bottom: 10%;
-    font-size: 20px;
+    font-size: calc(10px + 10 * (100vw / 1920));
+    ;
     line-height: 20px;
     display: flex;
     align-items: center;
@@ -396,7 +397,7 @@ textarea {
     align-items: center;
     padding: 10px 10px 10px 30px;
     gap: 10px;
-    width: 571px;
+    width: 100%;
     height: 71px;
     outline: none;
     background: rgba(133, 219, 157, 0.8);
@@ -404,7 +405,7 @@ textarea {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
-    font-size: 33px;
+    font-size: calc(20px + 13 * (100vw / 1920));
     line-height: 39px;
     /* identical to box height */
     letter-spacing: 0.215em;
@@ -420,7 +421,7 @@ textarea {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
-    font-size: 40px;
+    font-size: calc(15px + 25 * (100vw / 1920));
     line-height: 47px;
     /* identical to box height */
     display: flex;
@@ -431,9 +432,127 @@ textarea {
 }
 
 
-.feedback-form button:hover{
+.feedback-form button:hover {
     background: #85DB9D;
     color: #000000;
 
 }
 
+@media screen and (max-width: 1280px) {
+    .feedback-form {
+        width: fit-content;
+    }
+
+    .contact_form {
+        justify-content: center;
+    }
+
+    .feedback-form {
+        display: none;
+    }
+
+    .social-media-in-form h2,
+    .feedback-form h2 {
+        font-size: 35px;
+    }
+
+    .feedback-form input,
+    textarea {
+        width: 450px;
+    }
+
+    .cart_additionally p {
+        width: 280px;
+    }
+
+    .commoditys{
+        width: 100vw;
+    }
+    .commodity {
+        width: 40%;
+    }
+
+    .commodity img {
+        height: 100%;
+    }
+
+    .additionally {
+        width: 100vw;
+    }
+
+    .cart_additionally {
+        width: 280px;
+    }
+    .social-media-in-form{
+        width: 70vw;
+    }
+
+
+}
+
+@media screen and (max-width: 1024px) {
+    .carts_additionally {
+        overflow-x: auto;
+        padding-bottom: 20px;
+        /* Додатковий відступ, якщо потрібно */
+        margin-bottom: -20px;
+        /* Зміна відступу, якщо потрібно */
+        scrollbar-width: none;
+        /* Вимкнути показ лінії прокрутки для браузерів, що підтримують */
+        -ms-overflow-style: none;
+        /* Вимкнути показ лінії прокрутки для Internet Explorer та Edge */
+        gap: 50px;
+    }
+
+    .carts_additionally::-webkit-scrollbar {
+        display: none;
+        /* Вимкнути показ лінії прокрутки для WebKit-браузерів (Chrome, Safari, Opera) */
+    }
+
+    .commodity {
+        width: 500px;
+    }
+
+    .commoditys {
+        flex-direction: column;
+    }
+
+    .comm_del {
+        display: none;
+    }
+    .social-media-in-form{
+        width: 80vw;
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .contact_form{
+        display: none;
+    }
+    .commodity {
+        width: 90%;
+        height: 35vw;
+    }
+    .commodity img{
+        height: 100%;
+    } 
+    .main_content {
+        height: 2000px;
+    }
+}
+
+@media screen and (max-width: 430px){
+    .commoditys {
+        gap: 10px;
+        flex-direction: column;
+    }
+    .commodity {
+        flex-direction: column;
+        height: fit-content;
+        padding: 1% 0;
+    }
+    .comm_del_2{
+        display: none;
+    }
+}

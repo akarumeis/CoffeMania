@@ -29,36 +29,33 @@
 
         <div class="navbar_profile">
             <div class="block_navbar_btn">
-                <div class="my_profile"> <img src="{% static 'img/header_logo/profile.png' %}"> Мій профіль</div>
-                <div class="settings_profile"><img src="{% static 'img/header_logo/setting.png' %}">Налаштування</div>
+                <div class="my_profile"> <img src="{% static 'img/header_logo/profile.png' %}"><span>Мій профіль</span></div>
+                <!-- <div class="settings_profile"><img src="{% static 'img/header_logo/setting.png' %}">Налаштування</div> -->
             </div>
-            <a class="log-out" href="{% url 'logout' %}"><img src="{% static 'img/header_logo/log-out.png' %}">Вийти</a>
+            <a class="log-out" href="{% url 'logout' %}"><img src="{% static 'img/header_logo/log-out.png' %}"><span>Вийти</span></a>
         </div>
         <div class="user_pages">
             <div class="profile_page">
-                <span class="username">Інформація про вас</span>
+                <span class="username_title">Інформація про вас</span>
                 <br><br>
                 <form method="post" class="edit_form">
                     {% csrf_token %}
                     <input class="swap_confirm_edit" value="{% static 'img/header_logo/confirm_edit.png' %}" hidden>
                     <input class="swap_edit_icon" value="{% static 'img/header_logo/edit.png' %}" hidden>
                     <input class="url_for_swap" value="{% url 'editing_profile' %}" hidden>
-                    <span class="username">Повне ім'я: <input type="text" name="first_name"
+                    <span class="username">Повне ім'я: <span><input type="text" name="first_name"
                             value="{{ user.first_name }}" class="edit_input" readonly><img class="edit_icon"
-                            src="{% static 'img/header_logo/edit.png' %}"></span>
-                    <span class="username">Телефон: <input type="text" name="phone" value="{{ user.username }}"
+                            src="{% static 'img/header_logo/edit.png' %}"></span></span>
+                    <span class="username">Телефон: <span><input type="text" name="phone" value="{{ user.username }}"
                             class="edit_input" readonly><img class="edit_icon"
-                            src="{% static 'img/header_logo/edit.png' %}"></span>
-                    <span class="username">Email: <input type="email" name="email" value="{{ user.email }}"
+                            src="{% static 'img/header_logo/edit.png' %}"></span></span>
+                    <span class="username">Email: <span><input type="email" name="email" value="{{ user.email }}"
                             class="edit_input" readonly><img class="edit_icon"
-                            src="{% static 'img/header_logo/edit.png' %}"></span>
-                    <span class="username">Адрес: <input type="text" name="adress" value="{{ user.last_name }}"
+                            src="{% static 'img/header_logo/edit.png' %}"></span></span>
+                    <span class="username">Адрес: <span><input type="text" name="adress" value="{{ user.last_name }}"
                             class="edit_input" readonly><img class="edit_icon"
-                            src="{% static 'img/header_logo/edit.png' %}"></span>
+                            src="{% static 'img/header_logo/edit.png' %}"></span></span>
                 </form>
-
-            </div>
-            <div class="profile_setting">
 
             </div>
         </div>

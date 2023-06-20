@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'basket.apps.BasketConfig',
     'authenticate.apps.AuthenticateConfig',
     'user_profile.apps.UserProfileConfig',
+    'ordering.apps.OrderingConfig',
 ]
 
 MIDDLEWARE = [
@@ -64,6 +65,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'user_interface.context_processors.product_count',
                 'django.contrib.auth.context_processors.auth',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
@@ -133,3 +135,8 @@ MEDIA_URL = 'media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGOUT_REDIRECT_URL = '/'
+
+
+TELEGRAM_BOT_TOKEN = "5887139746:AAFU4PRpJR07ImxXEJ-J_xJuaYsPOH7ZZ9A"
+
+TELEGRAM_CHAT_ID = -1001879031985

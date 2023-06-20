@@ -1,36 +1,40 @@
-
 {% extends 'base/base.html' %}
 {% load static %}
 {% block title %}{{ product.name }}{% endblock%}
 {% block css %}
-<link rel="stylesheet" href="{% static 'shop/shop.css' %}">{% endblock %}
+<link rel="stylesheet" href="{% static 'product/product.css' %}">{% endblock %}
 {% block content %}
-<div id="content">
+<div class="product_content">
     <div class="product-row">
-        <div class="product-main">  
-            <img src="{{ product.image.url }}" alt="{{ product.name }}">
-            <div class="product-name-price">
-                <h2>{{ product.name }}</h2>
-                <p class="product-price">{{ product.price }}грн</p>
+        <div class="product-main">
+            <div class="product-info-div">
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                <div class="product-name-price">
+                    <h2>{{ product.name }}</h2>
+                    <p class="product-price">{{ product.price }} <span>&#8372</span> </p>
+                </div>  
             </div>
-            <div class="product-buttons">
-                <form method="post" id="basket_form">
-                    <div class="product-amount-totalprice">
-                        {% csrf_token %}
-                        <input name="product-pk" value = "{{ product.pk }}" hidden>
-                        <input name="product-url" value = "{{ product.get_absolute_url }}" hidden>
-                        <input class="amount-input" value = "1" hidden>
-                        <input class="" value="" hidden>
-                        <p class="product-amount-main">
-                            <span data-value="-1" class="change-amount-main minus-main">&minus;</span> 
-                            <span class="amount">1</span>
-                            <span data-value="+1" class="change-amount-main plus-main">&plus;</span>
-                        </p>
-                        <p class="product-totalprice">912грн</p>
-                    </div>
-                    <button class="add-product-button" value="{{ product.get_absolute_url }}">Додати у кошик</button>
-                </form>
-            </div>
+
+            <form method="post" id="basket_form">
+                {% csrf_token %}
+                <div class="product-amount-totalprice">
+
+                    <input name="product-pk" value="{{ product.pk }}" hidden>
+                    <input name="product-url" value="{{ product.get_absolute_url }}" hidden>
+                    <input class="amount-input" value="1" hidden>
+                    <input class="" value="" hidden>
+
+                    <p class="product-amount-main">
+                        <input class="default-price" value="{{ product.price }}" hidden>
+                        <span data-value="-1" class="change-amount-main minus-main">&minus;</span>
+                        <span class="amount">1</span>
+                        <span data-value="+1" class="change-amount-main plus-main">&plus;</span>
+                    </p>
+
+                    <p class="product-totalprice"><span>{{ product.price }}</span>&#8372</p>
+                </div>
+                <button class="add-product-button" value="{{ product.get_absolute_url }}">Додати у кошик</button>
+            </form>
         </div>
         <div class="product-description">
             <p>{{ product.description }}</p>

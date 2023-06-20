@@ -58,16 +58,16 @@
     padding: 3% 1%;
 }
 
-.buy-button {
+.buy-button, .buy-button_a {
+    color: black;
     position: sticky;
     cursor: pointer;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 1em 2em;
-    width: 272px;
-    height: 60px;
+    padding: 1% 3%;
+    margin-top: 10px;
     background: #85DB9D;
     border: none;
     border-radius: 13px;
@@ -78,9 +78,10 @@
     /* identical to box height */
     letter-spacing: 0.215em;
     transition: 0.3s;
+    text-decoration: none;
 }
 
-.buy-button:hover {
+.buy-button:hover, .buy-button_a:hover {
     background: #60b478;
 }
 
@@ -230,7 +231,7 @@
 }
 
 
-.button_block a{
+.go_shoping{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -245,7 +246,7 @@
     transition: 0.3s;
 }
 
-.button_block a:hover{
+.go_shoping:hover{
     color: #18de4c;
 }
 
@@ -260,6 +261,83 @@
     
 }
 
+
+.buy-modal-window {
+    z-index: 10;
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 10px 0px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 300px;
+    background: #2C2C2C;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+.close-button {
+    font-size: 40px;
+    color: #85DB9D;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-button:hover{
+    font-size: 50px;
+    transform: rotate(30deg);
+}
+
+.text-order {
+    margin: 0 auto;
+    font-family: 'Orelega One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 35px;
+    color: #85DB9D;
+}
+
+.order-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px;
+    gap: 10px;
+    width: 500px;
+    height: 203px;
+}
+
+.order-button {
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    padding: 0px;
+    width: 288px;
+    height: 58px;
+    border: none;
+    background: #85DB9D;
+    border-radius: 10px;
+    font-family: 'Orelega One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.order-button:hover{
+    background: #488358;
+    color: white;
+}
 
 @media screen and (max-width: 1280px) {
     .product-name{
@@ -286,13 +364,16 @@
     .empty_inner_basket_div a {
         width: 40%;
     }
+    .go_shoping{
+        display: none;
+    }
 }
 
 @media screen and (max-width: 767px) {
     .empty_inner_basket_div a {
-        width: 50%;
+        width: 60%;
     }
-    .button_block a{
+    .go_shoping{
         display: none;
     }
 
@@ -342,5 +423,8 @@
         align-items: center;
         justify-content: space-between;
         width: 100%;
+    }
+    .button_block{
+        flex-direction: column;
     }
 }

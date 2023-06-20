@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <input class="updater-url" value = "{% url 'updater_count' %}" hidden>
     <input class="basket-url" value="{% url 'basket_page' %}" hidden>
     <input class="profile-url" value="{% url 'user_profile' %}" hidden>
     <header>
@@ -28,13 +29,28 @@
                 <a href="{% url 'main_page' %}" class="menu-button">Головна</a>
                 <a href="{% url 'menu_page' %}" class="menu-button">Меню</a>
                 <a href="{% url 'contact_page' %}" class="menu-button">Контакти</a>
-
             </div>
-            <img class="basket_btn" src="{% static 'img/header_logo/basket.png' %}">
+            <div class="basket_div basket_btn">
+                <p class="products_amount">{{ product_count }}</p>
+                <input class="product_ids" value="{{ product_ids }}" hidden>
+                <img class="basket_btn" src="{% static 'img/header_logo/basket.png' %}">
+            </div>
+
             <span class="profile_btn">{{ user.first_name }}<img src="{% static 'img/header_logo/profile.png' %}"></span>
-            
+
 
         </div>
+
+        <div class="inner_header_burger">
+            <div class="burger_cross"> <span>&Cross;</span> </div>
+            <div class="menu-burger-buttons">
+                <a href="{% url 'main_page' %}" class="menu-burger-button">Головна</a>
+                <a href="{% url 'menu_page' %}" class="menu-burger-button">Меню</a>
+                <a href="{% url 'contact_page' %}" class="menu-burger-button">Контакти</a>
+            </div>
+            <span class="profile_burger_btn"><img src="{% static 'img/header_logo/profile_green.png' %}">{{ user.first_name }}</span>
+        </div>
+
     </header>
     <main>
         {% block content%}{% endblock %}
