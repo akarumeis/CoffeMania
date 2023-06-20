@@ -89,8 +89,8 @@
 
 
 
-.username_title{
-    margin:0;
+.username_title {
+    margin: 0;
     font-weight: 700;
     font-size: calc(24px + 8 * (100vw / 1920));
 }
@@ -267,7 +267,8 @@
 
     .edit_icon,
     .send_change {
-        width: 1em
+        width: 2em;
+        height: 2em
     }
 
     .username span {
