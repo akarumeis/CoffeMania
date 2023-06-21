@@ -65,6 +65,6 @@ def ordering(request):
         else:
             Orders.objects.create(session_key=session_key, user = None, order = order)
             ProductInBasket.objects.filter(session_key=session_key).delete()
-            
+
 
     return render(request, 'ordering/ordering.html', context)
