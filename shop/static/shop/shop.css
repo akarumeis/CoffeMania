@@ -22,7 +22,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10%;
+    gap: 5%;
 }
 
 .product-all {
@@ -37,7 +37,7 @@
     justify-content: center;
     align-items: center;
     padding: 2% 1%;
-    
+
 
 }
 
@@ -47,7 +47,7 @@
     height: fit-content;
     align-items: center;
     justify-content: center;
-    gap:3%;
+    gap: 3%;
 }
 
 .basket-button {
@@ -63,14 +63,14 @@
     height: 100%;
     border: 3px solid #000000;
     border-radius: 13px;
-    font-size: calc( 16px + 8 * (100vw / 1920));
+    font-size: calc(16px + 8 * (100vw / 1920));
     letter-spacing: 0.215em;
     text-decoration: none;
     color: #FFFFFF;
     transition: 0.3s;
 }
 
-.product-button:hover{
+.product-button:hover {
     background: rgb(0, 0, 0);
     color: #ffffff;
 }
@@ -98,46 +98,51 @@
     height: 50%;
 }
 
-.product-all .desc h3{
+.product-all .desc h3 {
     font-size: calc(20px + 8 * (100vw / 1920));
 }
 
-.product-all .desc h3 span{
+.product-all .desc h3 span {
     font-family: 'Roboto';
     font-style: normal;
 }
 
 .minus-main,
 .plus-main {
-    cursor: pointer;;
+    cursor: pointer;
+    ;
 }
 
-.product-amount-main{
+.product-amount-main {
     font-family: 'Roboto';
     font-style: normal;
     font-size: 30;
     text-decoration: none;
 }
-.product-amount-main{
+
+.product-amount-main {
     user-select: none;
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE/Edge */
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE/Edge */
     user-select: none;
 
 }
 
-@media screen and (max-width: 1920px){
+@media screen and (max-width: 1920px) {
     .product-all {
         width: 320px;
-        height: 500px;      
+        height: 500px;
     }
 }
 
 @media screen and (max-width: 1280px) {
     .product-all {
         width: 25vw;
-        height: 450px;      
+        height: 450px;
     }
 
 }
@@ -157,14 +162,14 @@
 
     .product-all {
         width: 30vw;
-        height: 400px;      
+        height: 400px;
     }
 }
 
 @media screen and (max-width: 890px) {
     .product-all {
         width: 300px;
-        height: 400px;          
+        height: 400px;
     }
 }
 
@@ -172,13 +177,13 @@
     .product-all {
         max-width: 300px;
         width: 90vw;
-        height: 350px;          
+        height: 350px;
     }
+
     .product-img {
         width: 60%;
         border-radius: 20px;
     }
 
-    
-}
 
+}

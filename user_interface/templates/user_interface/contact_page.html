@@ -3,6 +3,9 @@
 {% block css %}
 <link rel="stylesheet" href="{% static 'main/contact.css' %}">
 {% endblock %}
+{% block js %}
+<script src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js" defer></script>
+{% endblock %}
 {% block title %}Контакти{% endblock%}
 
 {% block content %}
@@ -29,11 +32,13 @@
 
         </div>
         <form method="post" class="feedback-form">
+            {% csrf_token %}
+            <input class="send_letter" value="{% url 'contact_page' %}" type="hidden">
             <h2>Надішліть</h2>
             <h3><span>Повідом</span>лення</h3>
-            <input class="input_in_form" type="text" placeholder="Ім'я">
-            <input class="input_in_form" type="email" placeholder="Email">
-            <textarea name="" id="" cols="30" rows="10" placeholder="Повідомлення"></textarea>
+            <input name="name" class="input_in_form" type="text" placeholder="Ім'я">
+            <input name="phone" class="input_in_form" id="phone_letter" type="text" placeholder="Номер телефону">
+            <textarea name="message" id="" cols="30" rows="10" placeholder="Повідомлення"></textarea>
             <button>
                 <p>Надіслати</p>
             </button>

@@ -6,7 +6,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="{% static 'base/base.css' %}">
+
     <script src="{% static 'js/jQuery.js' %}" defer></script>
     <script src="{% static 'js/script.js' %}" defer></script>
     {% block css %}{% endblock %}
@@ -15,7 +17,7 @@
 </head>
 
 <body>
-    <input class="updater-url" value = "{% url 'updater_count' %}" hidden>
+    <input class="updater-url" value="{% url 'updater_count' %}" hidden>
     <input class="basket-url" value="{% url 'basket_page' %}" hidden>
     <input class="profile-url" value="{% url 'user_profile' %}" hidden>
     <header>
@@ -48,7 +50,8 @@
                 <a href="{% url 'menu_page' %}" class="menu-burger-button">Меню</a>
                 <a href="{% url 'contact_page' %}" class="menu-burger-button">Контакти</a>
             </div>
-            <span class="profile_burger_btn"><img src="{% static 'img/header_logo/profile_green.png' %}">{{ user.first_name }}</span>
+            <span class="profile_burger_btn"><img src="{% static 'img/header_logo/profile_green.png' %}">{{
+                user.first_name }}</span>
         </div>
 
     </header>
