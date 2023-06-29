@@ -6,14 +6,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon_package_v0.16/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon_package_v0.16/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon_package_v0.16/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon_package_v0.16/site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static 'favicon_package_v0.16/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="{% static 'base/base.css' %}">
 
     <script src="{% static 'js/jQuery.js' %}" defer></script>
+    <script src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js" defer></script>
     <script src="{% static 'js/script.js' %}" defer></script>
     {% block css %}{% endblock %}
     {% block js %}{% endblock %}
-    <title>{% block title %}{% endblock%}</title>
+    <title>CoffeeMania</title>
 </head>
 
 <body>
@@ -50,8 +61,8 @@
                 <a href="{% url 'menu_page' %}" class="menu-burger-button">Меню</a>
                 <a href="{% url 'contact_page' %}" class="menu-burger-button">Контакти</a>
             </div>
-            <span class="profile_burger_btn"><img src="{% static 'img/header_logo/profile_green.png' %}">{{
-                user.first_name }}</span>
+            <span class="profile_burger_btn"><img
+                    src="{% static 'img/header_logo/profile_green.png' %}">{{user.first_name}}</span>
         </div>
 
     </header>

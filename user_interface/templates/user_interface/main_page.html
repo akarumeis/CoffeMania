@@ -2,8 +2,6 @@
 {% load static %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'main/style.css' %}">{% endblock %}
-{% block title %}CoffeeMania{% endblock%}
-
 {% block content %}
 <div class="content">
     <div class="face_div">
@@ -109,7 +107,9 @@
                 <input class="input_in_form" type="text" placeholder="Ім'я">
                 <input class="input_in_form" type="email" placeholder="Email">
                 <textarea name="" id="" cols="30" rows="10" placeholder="Повідомлення"></textarea>
-                <button><p>Надіслати</p></button>
+                <button>
+                    <p>Надіслати</p>
+                </button>
             </form>
         </div>
     </div>
