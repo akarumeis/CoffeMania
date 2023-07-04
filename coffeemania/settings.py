@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-+l1vyk@xs+0(+*(x+-2dr%a)+fcs#o-u52%t$r&x!5u=m+hreq"
+SECRET_KEY = ""
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -137,6 +137,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 LOGOUT_REDIRECT_URL = "/"
 
 
-TELEGRAM_BOT_TOKEN = "5887139746:AAFU4PRpJR07ImxXEJ-J_xJuaYsPOH7ZZ9A"
+TELEGRAM_BOT_TOKEN = ""
 
-TELEGRAM_CHAT_ID = -1001879031985
+TELEGRAM_CHAT_ID =
